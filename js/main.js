@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
     // Mobil menü mantığı
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -177,6 +177,19 @@ window.EVENTS = [
     content: `
       <p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p>
       <p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>
+    `,
+    gallery: [
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
+    ]
+  }
+     {
+    slug: "tiyatro-perde",
+    title: "“deneme” denme",
+    cover: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
+    excerpt: "deneme uzun metin.",
+    content: `
+      <p>paragraf 1 deneme.</p>
+      <p>paragraf 2 deneme.</p>
     `,
     gallery: [
       "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"

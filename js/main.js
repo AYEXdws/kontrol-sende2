@@ -183,7 +183,7 @@ window.EVENTS = [
     ]
   }
      {
-    slug: "tiyatro-perde",
+    slug: "deneme-deneme",
     title: "“deneme” denme",
     cover: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
     excerpt: "deneme uzun metin.",

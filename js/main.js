@@ -140,6 +140,21 @@
 });
 /* ====  ETKİNLİK VERİLERİ (statik)  ==== */
 window.EVENTS = [
+ {
+    slug: "dene-tasarimi",
+    title: "deneme",
+    cover: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=1200",
+    excerpt: "deneme uzun metin.",
+    // Detay sayfasında kullanılacak içerik:
+    content: `
+      <p>paragraf bir .</p>
+      <p>paragraf 2</p>
+    `,
+    gallery: [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200"
+    ]
+  },
   {
     slug: "afis-tasarim",
     title: "Afiş Tasarım Yarışması",

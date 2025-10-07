@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlik Detayı • KontrolSende</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Detay sayfası küçük eklemeler */
+    .detail-header { background: var(--primary-color); color:#fff; }
+    .detail-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; }
+    .back-btn {
+      display:inline-flex; align-items:center; gap:8px;
+      background:#ffffff; color:var(--primary-color);
+      border:none; border-radius:999px; padding:8px 14px; font-weight:600; cursor:pointer;
+    }
+    .back-btn:hover { filter: brightness(0.95); }
+    .detail-title { font-family: var(--font-heading); font-size:1.1rem; opacity:.92 }
+    .detail-hero {
+      height: 36vh; min-height:220px; border-radius:14px; margin:16px 0 10px;
+      background-size:cover; background-position:center; box-shadow: 0 8px 22px rgba(0,0,0,.12);
+    }
+    .detail-body { background:#fff; border-radius:14px; box-shadow: 0 5px 15px rgba(0,0,0,.06); padding:22px; }
+    .detail-body p { margin-bottom: .9rem; }
+    .detail-gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:14px; }
+    .detail-gallery img { width:100%; height:180px; object-fit:cover; border-radius:10px; display:block; }
+  </style>
+</head>
+<body>
+  <!-- Basit başlık çubuğu (menü yok) -->
+  <header class="detail-header">
+    <nav class="container detail-bar">
+      <a href="index.html" class="logo" style="color:#fff; text-decoration:none;">KontrolSende</a>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div id="event-title" class="detail-title">Etkinlik</div>
+        <button class="back-btn" onclick="location.href='etkinlikler.html'">← Geri</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container page-content">
+    <div id="event-cover" class="detail-hero" style="background-image:none;"></div>
+    <section id="event-detail-root" class="detail-body">
+      <div id="event-body"></div>
+      <div id="event-gallery" class="detail-gallery" aria-label="Galeri"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container"><p>&copy; 2025 KontrolSende Platformu.</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

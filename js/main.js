@@ -138,3 +138,98 @@ document.addEventListener('DOMContentLoaded', () => {
         displayQuestion();
     }
 });
+/* ====  ETKİNLİK VERİLERİ (statik)  ==== */
+window.EVENTS = [
+  {
+    slug: "afis-tasarim",
+    title: "Afiş Tasarım Yarışması",
+    cover: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=1200",
+    excerpt: "Öğrencilerimizin gözünden bağımlılık temasını işleyen yaratıcı afişler.",
+    // Detay sayfasında kullanılacak içerik:
+    content: `
+      <p>Okul çapında düzenlediğimiz afiş yarışmasında, bağımlılık ve farkındalık teması yaratıcı biçimde işlendi.</p>
+      <p>Jüri değerlendirmesi sonucunda ilk 10 çalışma sergilenmiştir. Bu çalışmalar, okul koridorlarında ve panolarda yer aldı.</p>
+    `,
+    gallery: [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200"
+    ]
+  },
+  {
+    slug: "yesilay-seminer",
+    title: "Yeşilay ile Seminer",
+    cover: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200",
+    excerpt: "Uzmanlar eşliğinde bilinçlendirici ve interaktif bir seminer.",
+    content: `
+      <p>Yeşilay uzmanları ile yaptığımız seminerde, tütün, alkol ve dijital bağımlılığın temel mekanizmaları anlatıldı.</p>
+      <p>Öğrenciler soru-cevap bölümünde aktif şekilde katkı sundu.</p>
+    `,
+    gallery: [
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200",
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200"
+    ]
+  },
+  {
+    slug: "tiyatro-perde",
+    title: "“Perde” Tiyatro Oyunu",
+    cover: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
+    excerpt: "Bağımlılığın sosyal etkilerini konu alan sahne performansı.",
+    content: `
+      <p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p>
+      <p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>
+    `,
+    gallery: [
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
+    ]
+  }
+];
+
+/* ====  ETKİNLİKLER SAYFASI: kartları üret  ==== */
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.activities-grid[data-source="events"]');
+  if (!grid || !Array.isArray(window.EVENTS)) return;
+
+  grid.innerHTML = window.EVENTS.map(ev => `
+    <article class="activity-card">
+      <img src="${ev.cover}" alt="${ev.title}">
+      <div class="activity-content">
+        <h3>${ev.title}</h3>
+        <p>${ev.excerpt}</p>
+        <a href="event-detail.html?slug=${encodeURIComponent(ev.slug)}">Detayları Gör</a>
+      </div>
+    </article>
+  `).join('');
+});
+
+/* ====  DETAY SAYFASI: içeriği doldur  ==== */
+document.addEventListener('DOMContentLoaded', () => {
+  const detailRoot = document.getElementById('event-detail-root');
+  if (!detailRoot) return;
+
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug');
+  const ev = (window.EVENTS || []).find(x => x.slug === slug);
+
+  const titleEl = document.getElementById('event-title');
+  const coverEl = document.getElementById('event-cover');
+  const bodyEl  = document.getElementById('event-body');
+  const galEl   = document.getElementById('event-gallery');
+
+  if (!ev) {
+    if (titleEl) titleEl.textContent = "Etkinlik bulunamadı";
+    if (bodyEl) bodyEl.innerHTML = "<p class='muted'>Aradığınız etkinlik kaldırılmış veya taşınmış olabilir.</p>";
+    if (coverEl) coverEl.style.display = 'none';
+    return;
+  }
+
+  if (titleEl) titleEl.textContent = ev.title;
+  if (coverEl) coverEl.style.backgroundImage = `url('${ev.cover}')`;
+  if (bodyEl) bodyEl.innerHTML = ev.content || "";
+
+  if (galEl) {
+    const pics = ev.gallery || [];
+    galEl.innerHTML = pics.length
+      ? pics.map(src => `<img src="${src}" alt="${ev.title} görseli">`).join('')
+      : `<div class="muted">Galeri içeriği yakında.</div>`;
+  }
+});

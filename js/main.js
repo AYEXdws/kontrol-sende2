@@ -182,19 +182,6 @@ window.EVENTS = [
       "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
     ]
   }
-     {
-    slug: "deneme-deneme",
-    title: "“deneme” denme",
-    cover: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
-    excerpt: "deneme uzun metin.",
-    content: `
-      <p>paragraf 1 deneme.</p>
-      <p>paragraf 2 deneme.</p>
-    `,
-    gallery: [
-      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
-    ]
-  }
 ];
 
 /* ====  ETKİNLİKLER SAYFASI: kartları üret  ==== */

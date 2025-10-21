@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayQuestion();
   } // quizContainer end
 
-  // ==== Etkinlik verisini fetch ile yükle ve sayfalara render et =====
+  // ==== Etkinlik verisini fetch ile sayfalara render et =====
   async function loadAndRenderEvents() {
     try {
       const res = await fetch('data/events.json');

@@ -224,21 +224,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadAndRenderEvents();
 
-  // Sticky CTA: IntersectionObserver ile daha güvenilir kontrol
-  const sticky = document.getElementById('sticky-cta');
-  const hero = document.querySelector('.hero');
+ // sticky kontrol bloğunun bulunduğu yere şu mantığı ekleyin:
+const sticky = document.getElementById('sticky-cta');
+const hero = document.querySelector('.hero');
 
-  if (sticky && hero && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          sticky.classList.remove('visible');
-        } else {
-          sticky.classList.add('visible');
-        }
-      });
-    }, { root: null, threshold: 0.05 });
-
+if (sticky && document.body.classList.contains('page-bagimlilik')) {
+  // Bağımlılık sayfasında sticky tamamen devre dışı
+  sticky.classList.remove('visible');
+  sticky.style.display = 'none';
+} else if (sticky && hero && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sticky.classList.remove('visible');
+      } else {
+        sticky.classList.add('visible');
+      }
+    });
+  }, { root: null, threshold: 0.05 });
+  // Gözlemi kısa bir gecikmeyle başlat (layout otursun)
+  setTimeout(() => io.observe(hero), 80);
+} else if (sticky && hero) {
+  // fallback scroll kontrolü
+  const checkSticky = () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) sticky.classList.add('visible');
+    else sticky.classList.remove('visible');
+  };
+  window.addEventListener('load', () => setTimeout(checkSticky, 120));
+  window.addEventListener('scroll', () => requestAnimationFrame(checkSticky), { passive: true });
+}
     // observe the hero after a tiny timeout so layout/images settle
     setTimeout(() => io.observe(hero), 80);
   } else if (sticky && hero) {

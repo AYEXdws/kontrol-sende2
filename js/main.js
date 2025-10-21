@@ -1,22 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Mobil menü mantığı
   const hamburger = document.getElementById('hamburger-menu');
-  const navLinks = document.querySelector('.nav-links');
+  let navLinks = document.querySelector('.nav-links');
 
-  if (hamburger && navLinks) {
-    const toggleMenu = (e) => {
-      try {
-        e && e.preventDefault && e.preventDefault();
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('nav-open');
-      } catch (err) {
-        console.error('Menu toggle error:', err);
-      }
-    };
+  const toggleNav = (e) => {
+    try {
+      e && e.preventDefault && e.preventDefault();
+      // navLinks bazen dinamik olabilir; yoksa tekrar seç
+      if (!navLinks) navLinks = document.querySelector('.nav-links');
+      if (!navLinks) return;
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('nav-open');
 
-    hamburger.addEventListener('click', toggleMenu);
-    // pointerdown + click is possible but click is sufficient here
+      // erişilebilirlik için aria-expanded güncelle
+      const expanded = hamburger.getAttribute('aria-expanded') !== 'true';
+      hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    } catch (err) {
+      console.error('Menu toggle error:', err);
+    }
+  };
+
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleNav);
+    // mobil cihazlarda daha hızlı tepki için touchstart ekleyebiliriz (gerektiğinde)
+    hamburger.addEventListener('touchstart', (e) => {
+      // touchstart ile çift tıklamayı önlemek için preventDefault, ama dikkat:
+      // bazı tarayıcılarda bu davranışu değiştirir. Burada hafif bir koruma.
+      toggleNav(e);
+    }, { passive: false });
+    // set initial aria
+    if (!hamburger.hasAttribute('aria-expanded')) hamburger.setAttribute('aria-expanded', 'false');
   }
 
   // --- Farkındalık Testi Mantığı ---
@@ -168,18 +182,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      events.sort((a, b) => {
-        const da = parseDate(a.date);
-        const db = parseDate(b.date);
-        if (da && db) return da - db;
-        if (da && !db) return -1;
-        if (!da && db) return 1;
-        return 0;
+      // preserve original index so we can fallback deterministically
+      const eventsWithIndex = events.map((ev, idx) => ({ ev, idx }));
+      // sort to have newest-first overall:
+      eventsWithIndex.sort((a, b) => {
+        const da = parseDate(a.ev.date);
+        const db = parseDate(b.ev.date);
+        if (da && db) return db - da;          // both have dates -> newest first
+        if (da && !db) return -1;              // dated comes before undated
+        if (!da && db) return 1;               // undated after dated
+        // neither have dates -> preserve reverse original order so last item becomes first (newest-last => newest-first)
+        return b.idx - a.idx;
       });
+      const sortedEvents = eventsWithIndex.map(x => x.ev);
 
-      window.EVENTS = events;
+      window.EVENTS = sortedEvents;
 
-      // render list grids (both normal and preview)
+      const isFullEventsPage = (location.pathname && location.pathname.indexOf('etkinlikler.html') !== -1) || (location.href && location.href.indexOf('etkinlikler.html') !== -1);
+
       const renderGrid = (grid, list) => {
         if (!grid) return;
         if (!list || !list.length) {
@@ -187,9 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const limit = grid.classList.contains('preview') ? 3 : list.length;
+        // preview: grid.preview OR not on etkinlikler.html (ör. anasayfa, bagimlilik sayfası)
+        const isPreview = grid.classList.contains('preview') || !isFullEventsPage;
+        const limit = isPreview ? 3 : list.length;
 
-        grid.innerHTML = list.slice(0, limit).map(ev => {
+        // list is already sorted newest-first
+        const toRender = isPreview ? list.slice(0, limit) : list;
+
+        grid.innerHTML = toRender.map(ev => {
           const dt = parseDate(ev.date);
           const dateStr = dt ? dt.toLocaleString('tr-TR', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
           const cover = ev.cover || 'https://via.placeholder.com/600x400?text=Etkinlik';
@@ -208,13 +233,17 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         }).join('');
 
-        if (grid.classList.contains('preview') && list.length > limit) {
-          grid.insertAdjacentHTML('afterend', `<div style="text-align:center;margin-top:12px"><a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a></div>`);
+        if (isPreview && list.length > limit) {
+          const container = grid.parentElement || document;
+          const hasCta = container.querySelector && container.querySelector('a.cta-button[href="etkinlikler.html"]');
+          if (!hasCta) {
+            grid.insertAdjacentHTML('afterend', `<div style="text-align:center;margin-top:12px"><a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a></div>`);
+          }
         }
       };
 
-      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
-        renderGrid(grid, events);
+      document.querySelectorAll('.activities-grid[data-source="events"]').forEach(grid => {
+        renderGrid(grid, sortedEvents);
       });
 
       // event detail page
@@ -222,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (detailRoot) {
         const params = new URLSearchParams(location.search);
         const slug = params.get('slug');
-        const ev = events.find(x => x.slug === slug);
+        const ev = sortedEvents.find(x => x.slug === slug);
 
         const titleEl = document.getElementById('event-title');
         const coverEl = document.getElementById('event-cover');
@@ -246,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       console.error('Etkinlik yükleme hatası:', err);
-      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
+      document.querySelectorAll('.activities-grid[data-source="events"]').forEach(grid => {
         if (grid) grid.innerHTML = `<div class="card"><p class="muted">Etkinlik verisi yüklenirken bir hata oluştu.</p></div>`;
       });
     }

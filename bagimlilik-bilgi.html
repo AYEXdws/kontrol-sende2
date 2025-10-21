@@ -1,195 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bağımlılık Hakkında Bilgi — KontrolSende</title>
-  <meta name="description" content="Bağımlılık nedir, nedenleri, belirtileri, beyin üzerindeki etkileri, tedavi ve önleme yolları hakkında derinlemesine bilgi. KontrolSende rehberliği." />
-
-  <!-- Varsayılan stil dosyası (repo'daki css diziniyle uyumlu olacak şekilde bağlanmıştır) -->
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Öne çıkan favicon ve marka renkleri (varsa) -->
-  <meta name="theme-color" content="#0b6e4f" />
-  <style>
-    /* Sayfa özgü küçük düzenlemeler — eğer global styles.css varsa bunlar onu tamamlar */
-    :root {
-      --brand: #0b6e4f;
-      --muted: #6b7280;
-      --bg: #fafafa;
-      --card: #ffffff;
-    }
-    body { background: var(--bg); color: #1f2937; font-family: Inter, "Helvetica Neue", Arial, sans-serif; line-height:1.6; margin:0; }
-    .container { max-width:1100px; margin:0 auto; padding:28px; }
-    header.site-header { display:flex; align-items:center; gap:18px; padding:18px 0; }
-    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
-    .brand .logo { width:48px; height:48px; background:var(--brand); border-radius:8px; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-weight:700; }
-    nav.main-nav a { margin-right:14px; color:var(--muted); text-decoration:none; font-weight:600; }
-    .hero { background: linear-gradient(90deg, rgba(11,110,79,0.08), rgba(11,110,79,0.02)); border-radius:12px; padding:22px; margin:18px 0; display:flex; gap:20px; align-items:flex-start; }
-    .hero h1 { margin:0; font-size:1.7rem; color:var(--brand); }
-    .lead { color:var(--muted); margin-top:8px; }
-    .grid { display:grid; grid-template-columns: 1fr 340px; gap:20px; margin-top:18px; }
-    .card { background:var(--card); border-radius:10px; padding:18px; box-shadow:0 4px 18px rgba(15,23,42,0.06); }
-    h2 { margin-top:0; color:#0f172a; }
-    .muted { color:var(--muted); font-size:0.95rem; }
-    ul.benefits { margin:8px 0 0 18px; }
-    footer { margin-top:28px; padding:18px 0; text-align:center; color:var(--muted); font-size:0.95rem; }
-    .btn { display:inline-block; background:var(--brand); color:#fff; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:600; }
-    .resource-list { list-style:none; padding:0; margin:8px 0 0 0; }
-    .resource-list li { margin:10px 0; }
-    .small { font-size:0.92rem; color:var(--muted); }
-    @media (max-width:900px){ .grid{grid-template-columns:1fr} .hero{flex-direction:column} }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bağımlılık Hakkında Bilgi - KontrolSende</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="KontrolSende anasayfa">
-        <span class="logo" aria-hidden="true">KS</span>
-        <div>
-          <div style="font-weight:800">KontrolSende</div>
-          <div class="small muted">Bilgi & Destek</div>
-        </div>
-      </a>
-
-      <nav class="main-nav" style="margin-left:auto;">
-        <a href="index.html">Anasayfa</a>
-        <a href="yardim.html">Yardım</a>
-        <a href="etkinlikler.html">Etkinlikler</a>
-        <a href="bagimlilik-bilgi.html" style="color:var(--brand);">Bağımlılık Bilgi</a>
-      </nav>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">KontrolSende</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNKilYHFaBRRI9ckep72aLc1H0OR0o3rbQusPKiywL42oEQ/viewform?usp=dialog">Test Et</a></li>
+                <li><a href="etkinlikler.html">Etkinlikler</a></li>
+                <li><a href="yardim.html">Yardım Al</a></li>
+                <li><a href="bagimlilik-bilgi.html" class="active">Bağımlılık Bilgi</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger-menu"><span></span><span></span><span></span></button>
+        </nav>
     </header>
 
-    <section class="hero card" aria-labelledby="hero-title">
-      <div style="flex:1">
-        <h1 id="hero-title">Bağımlılık Nedir? Derinlemesine Rehber</h1>
-        <p class="lead">Bağımlılık; madde kullanımından davranışlara kadar uzanan, beynin ödül sistemini değiştirerek kişisel, ailevi ve toplumsal düzeyde zarara yol açabilen bir sağlık sorunudur. Bu sayfada bağımlılığın tanımı, nedenleri, beyin üzerindeki etkileri, belirtileri, tedavi yaklaşımları ve erişilebilecek kaynaklar hakkında kapsamlı bilgi bulacaksınız.</p>
-      </div>
-      <div style="width:260px; text-align:right;">
-        <div class="small muted">Acil ihtiyaç varsa</div>
-        <div style="margin-top:10px;">
-          <a class="btn" href="yardim.html">Yardım ve İletişim</a>
-        </div>
-      </div>
-    </section>
+    <main>
+        <!-- Hero aligned with site's index hero styles -->
+        <section class="hero">
+            <div class="container">
+                <h1>Bağımlılık Nedir? Bilinçli Bir Rehber</h1>
+                <p>Bağımlılık; hem maddesel hem de davranışsal formlarda kendini gösterebilen, kişisel ve toplumsal yaşamı etkileyen karmaşık bir sağlık sorunudur. Aşağıda tanımı, nedenleri, belirtileri, tedavi yöntemleri ve destek kaynaklarıyla ilgili pratik ve güvenilir bilgiler bulacaksınız.</p>
+                <a href="yardim.html" class="cta-button">Yardıma İhtiyacım Var</a>
+            </div>
+        </section>
 
-    <div class="grid">
-      <main>
-        <article class="card" aria-labelledby="def-title">
-          <h2 id="def-title">1. Tanım ve Temel Bilgiler</h2>
-          <p class="muted">Bağımlılık (addiction), tekrarlayan bir davranışın veya maddenin kişinin kontrolünü zorlaştırdığı, zararlı sonuçlara rağmen devam edildiği kronik bir durumdur. İki ana başlıkta incelenir:</p>
-          <ul class="benefits">
-            <li><strong>Maddesel bağımlılık:</strong> Alkol, tütün, uyuşturucu, ilaçlar gibi maddelerin kullanımı sonucu gelişir.</li>
-            <li><strong>Davranışsal bağımlılık:</strong> Kumar, internet/oyun bağımlılığı, alışveriş, aşırı yeme gibi davranışlardan kaynaklanabilir.</li>
-          </ul>
+        <!-- Kapsamlı içerik, stil ve sınıflar index.html ile uyumlu -->
+        <section id="bilgi" class="info-section container">
+            <h2>1. Temel Tanım ve Türleri</h2>
+            <p>Bağımlılık; kişi için zararlı sonuçlara yol açsa dahi bir maddenin kullanımını veya belirli davranışları tekrarlamaya zorlayan, kontrolü azaltan kronik bir durumdur. İki ana kategoride incelir:</p>
+            <ul class="info-cards">
+                <li class="card">
+                    <img src="https://img.icons8.com/plasticine/100/pill.png" alt="Maddesel">
+                    <h3>Maddesel Bağımlılık</h3>
+                    <p>Alkol, tütün, yasa dışı veya reçeteli ilaçlar gibi maddelerin fiziksel ve psikolojik bağımlılık oluşturması.</p>
+                </li>
+                <li class="card">
+                    <img src="https://img.icons8.com/plasticine/100/console.png" alt="Davranışsal">
+                    <h3>Davranışsal Bağımlılık</h3>
+                    <p>Kumar, oyun/internet, alışveriş, yeme davranışları gibi tekrar eden davranışların kontrolden çıkması.</p>
+                </li>
+                <li class="card">
+                    <img src="https://img.icons8.com/plasticine/100/people-working-together.png" alt="Sosyal">
+                    <h3>Sosyal & Çevresel Etkenler</h3>
+                    <p>Kolay erişim, normlar, stres ve sosyal çevre bağımlılık riskini etkiler.</p>
+                </li>
+            </ul>
 
-          <h3 style="margin-top:14px;">Tanıda temel kriterler</h3>
-          <p class="small muted">Kontrol kaybı, kullanımda ısrar etme, olumsuz sosyal/mesleki sonuçlara rağmen devam etme ve yoksunluk/çekilme belirtileri tanıda dikkate alınır. Modern tanı sistemleri (DSM-5, ICD-11) bu kriterler üzerinden değerlendirme yapar.</p>
+            <h2>2. Nedenleri ve Risk Faktörleri</h2>
+            <p>Bağımlılık genetik, biyolojik (beyin ödül devreleri), psikolojik (travma, kişilik özellikleri) ve sosyal (erişim, çevresel stres) etmenlerin bir araya gelmesiyle ortaya çıkar. Erken yaşta maruz kalma, ruhsal bozukluklar ve aile öyküsü riski belirgin şekilde artırır.</p>
 
-          <h2 style="margin-top:18px;">2. Nedenleri ve Risk Faktörleri</h2>
-          <p>Bağımlılık tek bir nedeni olmayan, biyolojik, psikolojik ve sosyal faktörlerin etkileşimiyle ortaya çıkan bir durumdur. Öne çıkan faktörler:</p>
-          <ul>
-            <li><strong>Genetik yatkınlık:</strong> Ailede bağımlılık öyküsü riski artırır.</li>
-            <li><strong>Beyin kimyası ve ödül sistemi:</strong> Dopamin ve bağlanma devreleri rol oynar.</li>
-            <li><strong>Psikososyal faktörler:</strong> Stres, travma, düşük sosyal destek, erken yaşta maruz kalma.</li>
-            <li><strong>Çevresel etkenler:</strong> Kolay erişim, normlar, ekonomik koşullar.</li>
-          </ul>
+            <h2>3. Belirtiler ve Uyarı İşaretleri</h2>
+            <ul>
+                <li>Kullanımı kontrol edememe veya azaltamama</li>
+                <li>İş, okul ve ilişkilerde bozulma</li>
+                <li>Tolerans: aynı etki için daha fazla gereksinim</li>
+                <li>Çekilme belirtileri: uyku bozukluğu, terleme, huzursuzluk vb.</li>
+                <li>Gizleme, savunma, riskli davranışlar</li>
+            </ul>
 
-          <h2 style="margin-top:18px;">3. Beyin Üzerindeki Etkiler (Kısa Açıklama)</h2>
-          <p class="muted">Bağımlılık beyin plastisitesini değiştirir; ödül merkezleri daha hassas hale gelir, karar alma ve dürtü kontrolünü sağlayan prefrontal korteksin işlevi bozulabilir. Bu değişiklikler tolerate oluşumu, yoksunluk ve güçlü isteklere (craving) yol açar.</p>
+            <h2>4. Beyin Üzerindeki Etkiler (Özet)</h2>
+            <p>Bağımlılık süreci beyin plastisitesini etkiler; ödül merkezleri daha baskın hale gelirken, planlama ve dürtü kontrolünü sağlayan prefrontal korteksin işlevleri zayıflar. Bu, isteklerin güçlenmesi ve mantıklı karar verme yetisinin zorlanmasıyla sonuçlanır.</p>
 
-          <h2 style="margin-top:18px;">4. Belirtiler — Hangi Durumlarda Dikkat Etmeli?</h2>
-          <ul>
-            <li>Kontrolsüz kullanım veya davranışı bırakamamaya dair tekrar eden örüntüler.</li>
-            <li>Kullanımı azaltmaya yönelik güçlü istekler ve başarısız denemeler.</li>
-            <li>Sosyal, iş ya da eğitim hayatında bozulma.</li>
-            <li>Fiziksel yoksunluk belirtileri (terleme, uykusuzluk, titreme, bulantı vb.).</li>
-            <li>Riskli durumlarda kullanım (ör. araç kullanırken alkol/uyuşturucu).</li>
-          </ul>
+            <h2>5. Tedavi ve Destek Yaklaşımları</h2>
+            <p>Tedavi genellikle çok disiplinlidir ve kişiye özeldir. Yaygın bileşenler:</p>
+            <ul>
+                <li><strong>Medikal Müdahale:</strong> Yoksunluk yönetimi, gerekli durumlarda farmakoterapi.</li>
+                <li><strong>Psikoterapi:</strong> Bilişsel Davranışçı Terapi, Motivasyonel Görüşme, Aile Terapisi.</li>
+                <li><strong>Topluluk Destekleri:</strong> Destek grupları, rehabilitasyon programları, sosyal hizmetler.</li>
+                <li><strong>Zararı Azaltma:</strong> Temiz enjektör programları, güvenli kullanım bilgisi gibi uygulamalar.</li>
+            </ul>
 
-          <h2 style="margin-top:18px;">5. Sağlık, Sosyal ve Hukuki Sonuçlar</h2>
-          <p class="small muted">Uzun süreli bağımlılık; kronik hastalıklar, ruhsal bozukluklar, ilişki ve iş kayıpları, sosyoekonomik zorluklar ve yasal problemlerle ilişkilidir. Ayrıca aile ve topluluk üzerinde kuşaklar arası etkileri olabilir.</p>
+            <h2>6. Günlük Hayatta Uygulanabilir Adımlar</h2>
+            <ol>
+                <li>Kendi tetikleyicilerinizi tanımlayın ve bunlardan kaçınma stratejileri geliştirin.</li>
+                <li>Destek ağları kurun (aile, arkadaş, profesyonel destek).</li>
+                <li>Rutin, uyku ve fiziksel aktiviteyi düzenleyin.</li>
+                <li>Küçük hedefler belirleyerek başarı hissini artırın.</li>
+            </ol>
 
-          <h2 style="margin-top:18px;">6. Tedavi ve Destek Yöntemleri</h2>
-          <p>Tedavi çok disiplinli ve kişiye özel planlanmalıdır. Temel yaklaşımlar:</p>
-          <ul>
-            <li><strong>Tıbbi müdahale:</strong> Yoksunluk yönetimi, bazı bağımlılıklarda farmakoterapi (ör. tütün bağımlılığında nikotin replasmanı, alkol bağımlılığında bazı ilaçlar).</li>
-            <li><strong>Psikoterapi:</strong> Bilişsel davranışçı terapi (BDT), motivasyon artırıcı terapi, aile terapisi ve diğer danışmanlık yöntemleri.</li>
-            <li><strong>Topluluk destekleri:</strong> Anonim gruplar, destek ağları, sosyal hizmetler.</li>
-            <li><strong>Rehabilitasyon ve ayarlanmış bakım:</strong> Ayaktan veya yatılı programlar, takip ve nüks önleme planları.</li>
-          </ul>
+            <h2>7. Sık Sorulan Sorular</h2>
+            <p><strong>Bağımlılık irade eksikliği midir?</strong> Hayır. İrade rol oynar ama bağımlılık biyolojik, psikolojik ve çevresel faktörlerin etkileşimidir.</p>
+            <p><strong>Tedavi işe yarar mı?</strong> Evet — uygun tedavi ve destek ile birçok kişi yaşam kalitesini geri kazanır.</p>
 
-          <h2 style="margin-top:18px;">7. Önleme ve Zararı Azaltma</h2>
-          <p class="muted">Eğitim, erken müdahale ve toplum tabanlı politikalar bağımlılığın önlenmesinde etkilidir. Zararı azaltma yaklaşımları ise riskleri azaltmaya odaklanır (ör: güvenli kullanım eğitimleri, temiz enjektör programları, abortif stratejiler).</p>
+            <h2>8. Güvenilir Kaynaklar</h2>
+            <ul>
+                <li><a href="https://www.saglik.gov.tr" target="_blank" rel="noopener">Sağlık Bakanlığı</a></li>
+                <li><a href="https://www.who.int" target="_blank" rel="noopener">Dünya Sağlık Örgütü (WHO)</a></li>
+                <li><a href="yardim.html">KontrolSende — Yardım ve Destek</a></li>
+            </ul>
 
-          <h2 style="margin-top:18px;">8. Sık Sorulan Sorular (Kısa Yanıtlar)</h2>
-          <dl>
-            <dt>Bağımlılık yalnızca irade eksikliğinden mi kaynaklanır?</dt>
-            <dd class="muted">Hayır. İrade önemli olsa da bağımlılık biyolojik ve çevresel etmenlerin birleşimiyle oluşan bir sağlık sorunudur.</dd>
+            <p class="note">Bu içerik bilgilendirme amaçlıdır. Tanı ve tedavi için mutlaka bir sağlık profesyoneline başvurunuz.</p>
+        </section>
 
-            <dt>Tedavi işe yarar mı?</dt>
-            <dd class="muted">Evet. Uygun tedavi ve destekle birçok kişi iyileşme veya yönetilebilirlik sağlar.</dd>
+        <!-- Etkinlikler ön izlemesi ve CTA'lar site ile uyumlu -->
+        <section class="activities-preview-section container">
+            <h2>Proje Etkinlikleri</h2>
+            <p>KontrolSende'nin düzenlediği seminerler, atölyeler ve farkındalık etkinlikleri hakkında bilgi alabilirsiniz.</p>
+            <div class="activities-grid preview">
+                <article class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=800" alt="Afiş Tasarımı">
+                    <div class="activity-content">
+                        <h3>Afiş Tasarım Yarışması</h3>
+                        <p>Gençlerin bakış açısını yansıtan çalışmalar.</p>
+                        <a href="etkinlikler.html">Devamını Oku</a>
+                    </div>
+                </article>
+                <article class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="Seminer">
+                    <div class="activity-content">
+                        <h3>Uzman Seminerleri</h3>
+                        <p>Ruh sağlığı uzmanları ve rehabilitasyon profesyonellerinden bilgiler.</p>
+                        <a href="etkinlikler.html">Devamını Oku</a>
+                    </div>
+                </article>
+            </div>
 
-            <dt>Nereden yardım alabilirim?</dt>
-            <dd class="muted">Yerel sağlık kuruluşları, bağımlılık tedavi merkezleri, psikolojik danışmanlık hizmetleri ve KontrolSende'nin yardım sayfası ilk adımlar için uygundur.</dd>
-          </dl>
-        </article>
+            <a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a>
+        </section>
 
-        <article class="card" style="margin-top:18px;">
-          <h2>9. Kaynaklar ve Güvenilir Bilgi</h2>
-          <p>Bilgi alırken güvenilir kaynaklara başvurun. Aşağıda önerilen türde kaynaklar yer alır:</p>
-          <ul>
-            <li>Resmi sağlık kuruluşları ve halk sağlığı kurumlarının rehberleri.</li>
-            <li>Araştırma ve hakemli dergilerde yayınlanmış güncel çalışmalar.</li>
-            <li>Bağımlılık profesyonellerinin hazırladığı rehberler.</li>
-          </ul>
-
-          <h3 style="margin-top:12px;">Hızlı bağlantılar</h3>
-          <ul class="resource-list">
-            <li><a href="https://www.saglik.gov.tr" target="_blank" rel="noopener">Sağlık Bakanlığı (Türkiye)</a></li>
-            <li><a href="https://www.who.int" target="_blank" rel="noopener">Dünya Sağlık Örgütü (WHO)</a></li>
-            <li><a href="yardim.html">KontrolSende — Yardım ve Destek Sayfası</a></li>
-          </ul>
-        </article>
-      </main>
-
-      <aside>
-        <div class="card">
-          <h3>Belirtiler Kısa Kontrol Listesi</h3>
-          <ul>
-            <li>Kontrol kaybı</li>
-            <li>İş/okul/ilişkilerde bozulma</li>
-            <li>Çekilme veya tolerans gelişimi</li>
-            <li>Gizleme ve yalan söyleme</li>
-          </ul>
-          <p class="small muted">Bu kısa kontrol listesi yalnızca bilgilendirme amaçlıdır. Kesin tanı için profesyonel değerlendirme gereklidir.</p>
-        </div>
-
-        <div class="card" style="margin-top:14px;">
-          <h3>Acil İletişim</h3>
-          <p class="muted">Acil bir tehlike veya kriz durumunda yerel acil servisleri (112) arayın. Kriz müdahalesine ihtiyaç varsa yetkili kuruluşlara başvurun.</p>
-          <p style="margin-top:8px;"><a class="btn" href="yardim.html">Hemen Yardım Al</a></p>
-        </div>
-
-        <div class="card" style="margin-top:14px;">
-          <h3>KontrolSende Yaklaşımı</h3>
-          <p class="small muted">Empati, bilgi ve erişilebilir destek sunmayı hedefliyoruz. Utanma veya suçluluk hissetmeden destek istemeniz önemlidir.</p>
-        </div>
-      </aside>
-    </div>
+        <!-- Yardım çağrısı -->
+        <section class="help-cta container">
+            <h2>Hemen Yardım Al</h2>
+            <p>Eğer acil bir durumda iseniz lütfen yerel acil servisi (112) arayın. Destek almak için <a href="yardim.html">yardım sayfamızı</a> ziyaret edebilirsiniz.</p>
+            <a href="yardim.html" class="cta-button secondary">Destek Noktalarını Gör</a>
+        </section>
+    </main>
 
     <footer>
-      <div class="small muted">© KontrolSende — Bilgi amaçlı içerik. Sağlıkla ilgili kararlar için mutlaka uzman görüşü alın.</div>
+        <div class="container">
+            <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+        </div>
     </footer>
-  </div>
 
-  <!-- Varsayılan script dosyası (repo'daki js diziniyle uyumlu olacak şekilde bağlanmıştır) -->
-  <script src="js/main.js" defer></script>
-  <script>
-    // Basit, sayfa içi etkileşim: gezinme linklerini güvenli hale getirme veya analytics ekleme için yer.
-    (function(){
-      // Bu sayfada ek özellik isterseniz buraya küçük JS eklemeleri yapılabilir.
-    })();
-  </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,25 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobil menü mantığı (daha dayanıklı)
+  // Mobil menü mantığı
   const hamburger = document.getElementById('hamburger-menu');
   const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
-    const toggleMenu = (e) => {
-      try {
-        e && e.preventDefault && e.preventDefault();
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('nav-open');
-      } catch (err) {
-        console.error('Menu toggle error:', err);
-      }
-    };
-
-    hamburger.addEventListener('pointerdown', toggleMenu);
-    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
   }
 
-  // --- Farkındalık Testi Mantığı (mevcut quiz kodu korunuyor) ---
+  // --- Farkındalık Testi Mantığı ---
   const quizContainer = document.getElementById('quiz-container');
   if (quizContainer) {
     const questions = [
@@ -181,73 +172,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.EVENTS = events; // global referans, gerekirse kullanılabilir
 
-      // render fonksiyonu (grid elemanını doldur)
-      const renderGrid = (grid, list) => {
-        if (!grid) return;
-        if (!list || !list.length) {
-          grid.innerHTML = `<div class="card" style="padding:20px;border-radius:10px;background:var(--white);box-shadow:0 6px 18px rgba(0,0,0,0.04)"><p class="muted">Henüz planlı bir etkinlik yok. Takipte kalın.</p></div>`;
+      // 1) Listeleri doldur (tüm sayfalardaki grid'ler için)
+      document.querySelectorAll('.activities-grid[data-source="events"]').forEach(grid => {
+        grid.innerHTML = events.map(ev => `
+          <article class="activity-card">
+            <img src="${ev.cover}" alt="${ev.title}">
+            <div class="activity-content">
+              <h3>${ev.title}</h3>
+              <p>${ev.excerpt}</p>
+              <a href="event-detail.html?slug=${encodeURIComponent(ev.slug)}">Detayları Gör</a>
+            </div>
+          </article>
+        `).join('');
+      });
+
+      // 2) Eğer detay sayfasındaysak, detay içeriğini doldur
+      const detailRoot = document.getElementById('event-detail-root');
+      if (detailRoot) {
+        const params = new URLSearchParams(location.search);
+        const slug = params.get('slug');
+        const ev = events.find(x => x.slug === slug);
+
+        const titleEl = document.getElementById('event-title');
+        const coverEl = document.getElementById('event-cover');
+        const bodyEl  = document.getElementById('event-body');
+        const galEl   = document.getElementById('event-gallery');
+
+        if (!ev) {
+          if (titleEl) titleEl.textContent = "Etkinlik bulunamadı";
+          if (bodyEl) bodyEl.innerHTML = "<p class='muted'>Aradığınız etkinlik kaldırılmış veya taşınmış olabilir.</p>";
+          if (coverEl) coverEl.style.display = 'none';
           return;
         }
 
-        // preview için limit (örnek: 3); istersen grid.dataset.limit ile dinamik yapabilirsin
-        const limit = grid.classList.contains('preview') ? 3 : list.length;
+        if (titleEl) titleEl.textContent = ev.title;
+        if (coverEl) coverEl.style.backgroundImage = `url('${ev.cover}')`;
+        if (bodyEl) bodyEl.innerHTML = ev.content || "";
 
-        grid.innerHTML = list.slice(0, limit).map(ev => {
-          const dt = parseDate(ev.date);
-          const dateStr = dt ? dt.toLocaleString('tr-TR', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
-          const cover = ev.cover || 'https://via.placeholder.com/600x400?text=Etkinlik';
-          const excerpt = ev.excerpt ? ev.excerpt : '';
-          const slug = ev.slug ? encodeURIComponent(ev.slug) : '';
-          return `
-            <article class="activity-card">
-              <img src="${cover}" alt="${ev.title || 'Etkinlik'}">
-              <div class="activity-content">
-                <h3>${ev.title || 'Başlık yok'}</h3>
-                ${dateStr ? `<small style="color:#777;margin-bottom:6px;display:block">${dateStr}</small>` : ''}
-                <p>${excerpt}</p>
-                <div style="margin-top:auto"><a href="${slug ? 'event-detail.html?slug='+slug : 'etkinlikler.html'}">Detayları Gör</a></div>
-              </div>
-            </article>
-          `;
-        }).join('');
-
-        // Eğer preview ve daha fazla etkinlik varsa "Tüm Etkinlikler" butonu ekle
-        if (grid.classList.contains('preview') && list.length > limit) {
-          grid.insertAdjacentHTML('afterend', `<div style="text-align:center;margin-top:14px"><a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a></div>`);
+        if (galEl) {
+          const pics = ev.gallery || [];
+          galEl.innerHTML = pics.length
+            ? pics.map(src => `<img src="${src}" alt="${ev.title} görseli">`).join('')
+            : `<div class="muted">Galeri içeriği yakında.</div>`;
         }
-      };
-
-      // Tüm hedef grid'leri doldur
-      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
-        renderGrid(grid, events);
-      });
+      }
 
     } catch (err) {
       console.error('Etkinlik yükleme hatası:', err);
-      // fallback: tüm hedef grid'lere hata mesajı koy
-      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
-        grid.innerHTML = `<div class="card" style="padding:20px;border-radius:10px;background:var(--white);box-shadow:0 6px 18px rgba(0,0,0,0.04)"><p class="muted">Etkinlik verisi yüklenirken bir hata oluştu.</p></div>`;
-      });
     }
   }
 
   loadAndRenderEvents();
-
-  // Sticky CTA davranışı: hero'dan aşağı inince mobilde göster (opsiyonel)
-  const sticky = document.getElementById('sticky-cta');
-  const hero = document.querySelector('.hero');
-  if (sticky && hero) {
-    const checkSticky = () => {
-      const heroBottom = hero.getBoundingClientRect().bottom;
-      if (heroBottom < 0) {
-        sticky.classList.add('visible');
-      } else {
-        sticky.classList.remove('visible');
-      }
-    };
-    checkSticky();
-    window.addEventListener('scroll', () => {
-      requestAnimationFrame(checkSticky);
-    }, { passive: true });
-  }
 });

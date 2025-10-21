@@ -10,14 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <meta name="description" content="Okul öğrencilerine yönelik basit ve güvenilir bağımlılık rehberi. Yardım ve günlük stratejiler." />
   <style>
-    .toc { margin: 1rem 0; background:#f7f7fb; padding:1rem; border-radius:8px;}
-    .subtitle { margin-bottom: .5rem; color:#444; }
-    .page-content h2{margin-top:1.25rem}
-    .search-row{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem}
-    .search-row input{flex:1;padding:.5rem;border-radius:6px;border:1px solid #ddd}
-    .result-highlight{background: #fff7a8}
-    @media (max-width:600px){ .toc ul{columns:1} }
+    /* Sayfaya özel küçük stiller (isteğe bağlı: css/style.css'e taşıyabilirsiniz) */
+    .quick-summary .card { display:flex; gap:12px; align-items:center; padding:18px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.06); background:#fff; }
+    .quick-summary .card h3 { margin:0; color:var(--primary-color); }
     .tip{background:#eef7ff;padding:.6rem;border-left:4px solid #3aa0ff;margin:0.8rem 0;border-radius:6px}
+    .sticky-cta { display:none; }
+    @media (max-width:768px){ .sticky-cta{ display:block; } }
   </style>
 </head>
 <body>
@@ -41,6 +39,21 @@
         <h1>Bağımlılık Kütüphanesi</h1>
         <p class="subtitle">Okul öğrencileri için anlaşılır, güvenilir ve yardım odaklı bilgiler. Eğer bir şey seni zor durumda bırakıyorsa yalnız değilsin.</p>
         <a href="yardim.html" class="cta-button">Yardıma İhtiyacım Var</a>
+      </div>
+    </section>
+
+    <!-- Quick summary: sayfaya girince ilk dikkat çeken kutu -->
+    <section class="quick-summary container" aria-hidden="false" style="margin-top:-30px; position:relative; z-index:2;">
+      <div class="card">
+        <div style="flex:1;">
+          <h3>Hızlı Bakış</h3>
+          <ul style="margin:.5rem 0 0 1rem;color:#333">
+            <li>Ne zaman yardım istenir — pratik adımlar</li>
+            <li>3 kısa başa çıkma tekniği (anında işe yarayanlar)</li>
+            <li>Okulda kiminle konuşabilirsin</li>
+          </ul>
+        </div>
+        <a href="yardim.html" class="cta-button" style="margin-left:12px;">Hemen Destek Al</a>
       </div>
     </section>
 
@@ -163,13 +176,14 @@
       <h3>Acil Durum</h3>
       <p>Eğer kendinize veya başkasına zarar verme riski varsa, hemen yerel acil servisi (112) arayın.</p>
       <h3>Okul İletişim</h3>
-      <p>Okul rehber öğretmeni: <em>okulunuzun rehber iletişim bilgisi</em> (örnek: +90 5xx xxx xx xx)</p>
+      <p>Okul rehber öğretmeni: <em>okulunuzun rehber iletişim bilgisi</em></p>
     </section>
 
+    <!-- Etkinlikler ön izlemesi (preview sınıfı eklendi) -->
     <section class="activities-preview-section container">
       <h2>Proje Etkinlikleri</h2>
       <p>KontrolSende'nin düzenlediği seminerler ve atölyeler hakkında bilgi alabilirsiniz.</p>
-      <div class="activities-grid" data-source="events"></div>
+      <div class="activities-grid preview" data-source="events"></div>
       <a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a>
     </section>
 
@@ -180,8 +194,15 @@
       <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
     </div>
   </footer>
-<script src="js/main.js"></script>
+
+  <!-- Mobil için yapışkan (sticky) CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNKilYHFaBRRI9ckep72aLc1H0OR0o3rbQusPKiywL42oEQ/viewform?usp=dialog" class="cta-button" style="width:100%;text-align:center;">Farkındalık Testine Başla</a>
+  </div>
+
+  <script src="js/main.js"></script>
   <script>
+    // Basit sayfa içi arama (başlık ve paragraf metinlerinde arama yapar)
     (function(){
       const input = document.getElementById('page-search');
       const clearBtn = document.getElementById('search-clear');

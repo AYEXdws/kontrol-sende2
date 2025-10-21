@@ -182,3 +182,50 @@ footer { background: #2b2b2b; color: #ddd; text-align: center; padding: 18px; fo
     .quiz-container { padding: 20px; }
     #question-container p { font-size: 1.2rem; }
 }","message":"Update css/style.css with new styles","owner":"AYEXdws","path":"css/style.css","repo":"kontrol-sende2"}
+:root {
+  /* Eski marka rengine geri dönüş */
+  --primary-color: #0A2647;   /* ESKI marka rengi (orijinal) */
+  --secondary-color: #20C38E;
+  --bg-color: #F7F9FB;
+  --text-color: #222831;
+  --white: #ffffff;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ... (diğer global stiller korunur) ... */
+
+/* Sticky CTA: DEFAULT GIZLI, JS .visible ile açılacak */
+.sticky-cta {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
+  z-index: 3000;
+  display: none;             /* JS'e bırakıldı */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 260ms ease, transform 260ms ease;
+  pointer-events: none;
+}
+.sticky-cta.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Sayfaya özel: Bağımlılık Kütüphanesi (subtitle beyaz, hero arka planı biraz daha koyu) */
+.page-bagimlilik .hero {
+  /* daha az açık arka plan: overlay biraz koyulaştırıldı */
+  background: linear-gradient(rgba(10,38,71,0.82), rgba(10,38,71,0.82)), url('https://images.unsplash.com/photo-1590623389907-e49251052d9a?w=1080') no-repeat center center/cover;
+  color: var(--white);
+}
+.page-bagimlilik .subtitle {
+  color: #ffffff !important; /* beyaz yap */
+}
+
+/* Eğer quick-summary negative margin varsa, overlap etkisini azalt */
+.page-bagimlilik .quick-summary { margin-top: -8px; }
+
+/* (site genelindeki diğer stiller burada kalır) */

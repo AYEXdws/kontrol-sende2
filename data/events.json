@@ -1,0 +1,45 @@
+[
+  {
+    "slug": "dene-tasarimi",
+    "title": "deneme",
+    "cover": "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=1200",
+    "excerpt": "deneme uzun metin.",
+    "content": "<p>paragraf bir .</p><p>paragraf 2</p>",
+    "gallery": [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200"
+    ]
+  },
+  {
+    "slug": "afis-tasarim",
+    "title": "Afiş Tasarım Yarışması",
+    "cover": "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=1200",
+    "excerpt": "Öğrencilerimizin gözünden bağımlılık temasını işleyen yaratıcı afişler.",
+    "content": "<p>Okul çapında düzenlediğimiz afiş yarışmasında, bağımlılık ve farkındalık teması yaratıcı biçimde işlendi.</p><p>Jüri değerlendirmesi sonucunda ilk 10 çalışma sergilenmiştir. Bu çalışmalar, okul koridorlarında ve panolarda yer aldı.</p>",
+    "gallery": [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200"
+    ]
+  },
+  {
+    "slug": "yesilay-seminer",
+    "title": "Yeşilay ile Seminer",
+    "cover": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200",
+    "excerpt": "Uzmanlar eşliğinde bilinçlendirici ve interaktif bir seminer.",
+    "content": "<p>Yeşilay uzmanları ile yaptığımız seminerde, tütün, alkol ve dijital bağımlılığın temel mekanizmaları anlatıldı.</p><p>Öğrenciler soru-cevap bölümünde aktif şekilde katkı sundu.</p>",
+    "gallery": [
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200",
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200"
+    ]
+  },
+  {
+    "slug": "tiyatro-perde",
+    "title": "Perde Tiyatro Oyunu",
+    "cover": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
+    "excerpt": "Bağımlılığın sosyal etkilerini konu alan sahne performansı.",
+    "content": "<p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p><p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>",
+    "gallery": [
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
+    ]
+  }
+]

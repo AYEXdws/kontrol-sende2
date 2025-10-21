@@ -4,10 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+    const toggleMenu = (e) => {
+      try {
+        e && e.preventDefault && e.preventDefault();
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('nav-open');
+      } catch (err) {
+        console.error('Menu toggle error:', err);
+      }
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+    // pointerdown + click is possible but click is sufficient here
   }
 
   // --- Farkındalık Testi Mantığı ---
@@ -141,16 +150,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     displayQuestion();
-  }
+  } // quizContainer end
 
   // ==== Etkinlik verisini fetch ile yükle ve sayfalara render et =====
   async function loadAndRenderEvents() {
     try {
       const res = await fetch('data/events.json');
-      if (!res.ok) throw new Error('Etkinlik verisi yüklenemedi');
+      if (!res.ok) throw new Error('Etkinlik verisi yüklenemedi: ' + res.status);
       const events = await res.json();
 
-      // Eğer etkinlik objesinde tarih alanı varsa, ISO string beklenir (ör: "2025-11-01T18:00:00Z")
       const parseDate = (d) => {
         try {
           const dt = d ? new Date(d) : null;
@@ -160,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      // Tarihe göre artan (yaklaşan) sıralama; tarih yoksa sona at
       events.sort((a, b) => {
         const da = parseDate(a.date);
         const db = parseDate(b.date);
@@ -170,23 +177,47 @@ document.addEventListener('DOMContentLoaded', () => {
         return 0;
       });
 
-      window.EVENTS = events; // global referans, gerekirse kullanılabilir
+      window.EVENTS = events;
 
-      // 1) Listeleri doldur (tüm sayfalardaki grid'ler için)
-      document.querySelectorAll('.activities-grid[data-source="events"]').forEach(grid => {
-        grid.innerHTML = events.map(ev => `
-          <article class="activity-card">
-            <img src="${ev.cover}" alt="${ev.title}">
-            <div class="activity-content">
-              <h3>${ev.title}</h3>
-              <p>${ev.excerpt}</p>
-              <a href="event-detail.html?slug=${encodeURIComponent(ev.slug)}">Detayları Gör</a>
-            </div>
-          </article>
-        `).join('');
+      // render list grids (both normal and preview)
+      const renderGrid = (grid, list) => {
+        if (!grid) return;
+        if (!list || !list.length) {
+          grid.innerHTML = `<div class="card"><p class="muted">Henüz planlı bir etkinlik yok.</p></div>`;
+          return;
+        }
+
+        const limit = grid.classList.contains('preview') ? 3 : list.length;
+
+        grid.innerHTML = list.slice(0, limit).map(ev => {
+          const dt = parseDate(ev.date);
+          const dateStr = dt ? dt.toLocaleString('tr-TR', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+          const cover = ev.cover || 'https://via.placeholder.com/600x400?text=Etkinlik';
+          const excerpt = ev.excerpt ? ev.excerpt : '';
+          const slug = ev.slug ? encodeURIComponent(ev.slug) : '';
+          return `
+            <article class="activity-card">
+              <img src="${cover}" alt="${(ev.title||'Etkinlik')}">
+              <div class="activity-content">
+                <h3>${ev.title || 'Başlık yok'}</h3>
+                ${dateStr ? `<small style="color:#777;display:block;margin-bottom:6px">${dateStr}</small>` : ''}
+                <p>${excerpt}</p>
+                <div style="margin-top:auto"><a href="${slug ? 'event-detail.html?slug='+slug : 'etkinlikler.html'}">Detayları Gör</a></div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        if (grid.classList.contains('preview') && list.length > limit) {
+          grid.insertAdjacentHTML('afterend', `<div style="text-align:center;margin-top:12px"><a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a></div>`);
+        }
+      };
+
+      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
+        renderGrid(grid, events);
       });
 
-      // 2) Eğer detay sayfasındaysak, detay içeriğini doldur
+      // event detail page
       const detailRoot = document.getElementById('event-detail-root');
       if (detailRoot) {
         const params = new URLSearchParams(location.search);
@@ -202,61 +233,47 @@ document.addEventListener('DOMContentLoaded', () => {
           if (titleEl) titleEl.textContent = "Etkinlik bulunamadı";
           if (bodyEl) bodyEl.innerHTML = "<p class='muted'>Aradığınız etkinlik kaldırılmış veya taşınmış olabilir.</p>";
           if (coverEl) coverEl.style.display = 'none';
-          return;
-        }
-
-        if (titleEl) titleEl.textContent = ev.title;
-        if (coverEl) coverEl.style.backgroundImage = `url('${ev.cover}')`;
-        if (bodyEl) bodyEl.innerHTML = ev.content || "";
-
-        if (galEl) {
-          const pics = ev.gallery || [];
-          galEl.innerHTML = pics.length
-            ? pics.map(src => `<img src="${src}" alt="${ev.title} görseli">`).join('')
-            : `<div class="muted">Galeri içeriği yakında.</div>`;
+        } else {
+          if (titleEl) titleEl.textContent = ev.title;
+          if (coverEl) coverEl.style.backgroundImage = `url('${ev.cover}')`;
+          if (bodyEl) bodyEl.innerHTML = ev.content || "";
+          if (galEl) {
+            const pics = ev.gallery || [];
+            galEl.innerHTML = pics.length ? pics.map(src => `<img src="${src}" alt="${ev.title} görseli">`).join('') : `<div class="muted">Galeri içeriği yakında.</div>`;
+          }
         }
       }
 
     } catch (err) {
       console.error('Etkinlik yükleme hatası:', err);
+      document.querySelectorAll('.activities-grid[data-source="events"], .activities-grid.preview').forEach(grid => {
+        if (grid) grid.innerHTML = `<div class="card"><p class="muted">Etkinlik verisi yüklenirken bir hata oluştu.</p></div>`;
+      });
     }
   }
 
   loadAndRenderEvents();
 
- // sticky kontrol bloğunun bulunduğu yere şu mantığı ekleyin:
-const sticky = document.getElementById('sticky-cta');
-const hero = document.querySelector('.hero');
+  // Sticky CTA behavior: disable on bagimlilik page, otherwise use IntersectionObserver
+  const sticky = document.getElementById('sticky-cta');
+  const hero = document.querySelector('.hero');
 
-if (sticky && document.body.classList.contains('page-bagimlilik')) {
-  // Bağımlılık sayfasında sticky tamamen devre dışı
-  sticky.classList.remove('visible');
-  sticky.style.display = 'none';
-} else if (sticky && hero && 'IntersectionObserver' in window) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        sticky.classList.remove('visible');
-      } else {
-        sticky.classList.add('visible');
-      }
-    });
-  }, { root: null, threshold: 0.05 });
-  // Gözlemi kısa bir gecikmeyle başlat (layout otursun)
-  setTimeout(() => io.observe(hero), 80);
-} else if (sticky && hero) {
-  // fallback scroll kontrolü
-  const checkSticky = () => {
-    const heroBottom = hero.getBoundingClientRect().bottom;
-    if (heroBottom < 0) sticky.classList.add('visible');
-    else sticky.classList.remove('visible');
-  };
-  window.addEventListener('load', () => setTimeout(checkSticky, 120));
-  window.addEventListener('scroll', () => requestAnimationFrame(checkSticky), { passive: true });
-}
-    // observe the hero after a tiny timeout so layout/images settle
-    setTimeout(() => io.observe(hero), 80);
+  if (sticky && document.body.classList.contains('page-bagimlilik')) {
+    // force hide on that page
+    sticky.classList.remove('visible');
+    sticky.style.display = 'none';
+  } else if (sticky && hero && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) sticky.classList.remove('visible');
+        else sticky.classList.add('visible');
+      });
+    }, { root: null, threshold: 0.05 });
+
+    // start observing after a short delay so layout/images settle
+    setTimeout(() => observer.observe(hero), 80);
   } else if (sticky && hero) {
+    // fallback
     const checkSticky = () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
       if (heroBottom < 0) sticky.classList.add('visible');
@@ -265,5 +282,4 @@ if (sticky && document.body.classList.contains('page-bagimlilik')) {
     window.addEventListener('load', () => setTimeout(checkSticky, 120));
     window.addEventListener('scroll', () => requestAnimationFrame(checkSticky), { passive: true });
   }
-
 });

@@ -1,84 +1,77 @@
-# 🧠 KontrolSende
+```markdown
+# KontrolSende
 
-**KontrolSende**, bağımlılık farkındalığını artırmayı amaçlayan bir okul projesidir.  
-Bu web sitesi, öğrencilerin ve genç bireylerin **sigara, alkol, dijital bağımlılık ve benzeri davranışlar** hakkında farkındalık kazanmasını hedefler.
+KontrolSende, okul öğrencilerine yönelik bağımlılık farkındalığı, destek kaynakları ve etkinlik duyuruları sunan sade bir statik web sitesidir. İçerikler eğitim amaçlıdır; tıbbi teşhis yerine geçmez.
 
----
+## Özellikler
+- Ana sayfa, etkinlikler sayfası ve bağımlılık kütüphanesi gibi bilgi odaklı sayfalar
+- Dinamik etkinlik önizlemeleri (data/events.json'dan yüklenir)
+- Her etkinlik için detay sayfası (event-detail.html?slug=...)
+- Kısa farkındalık testi (quiz)
+- Mobil uyumlu, basit ve erişilebilir tasarım
 
-## 🎯 Projenin Amacı
+## Hızlı Başlangıç (yerel geliştirme)
+1. Depoyu klonlayın:
+```bash
+git clone https://github.com/AYEXdws/kontrol-sende2.git
+cd kontrol-sende2
+```
 
-Bağımlılığın sadece maddeyle sınırlı olmadığını; **duygusal, dijital, alışveriş ve oyun** gibi farklı alanlarda da oluşabileceğini göstermek.  
-Her bireyin kendi alışkanlıklarını fark etmesi, “kontrol”ü yeniden eline alması hedeflenmiştir.
+2. Basit bir yerel sunucu ile çalıştırın:
+- Python 3:
+```bash
+python -m http.server 8000
+```
+- Node (http-server):
+```bash
+npx http-server -c-1
+```
 
----
+3. Tarayıcıda açın:
+```
+http://localhost:8000
+```
 
-## 🧩 Özellikler
+Not: Dosyaları doğrudan file:// ile açmak bazı tarayıcı kısıtlamaları nedeniyle fetch ile yüklenen verileri (ör. data/events.json) engelleyebilir; bu yüzden HTTP sunucu önerilir.
 
-- **Farkındalık Testi:**  
-  Kullanıcıların günlük alışkanlıklarını değerlendirip, kategori bazlı sonuçlar (sigara, alkol, dijital, genel vb.) verir.
+## Proje yapısı (önemli dosyalar)
+- index.html — Ana sayfa
+- etkinlikler.html — Tüm etkinlikler listesi
+- bagimlilik-bilgi.html — Bağımlılık kütüphanesi / içerik sayfası
+- event-detail.html — Etkinlik detay sayfası
+- data/events.json — Etkinlik verileri (JSON dizi)
+- js/main.js — Site davranışını kontrol eden ana JS dosyası
+- css/style.css — Stil dosyası
+- LICENSE — MIT lisansı
 
-- **İstatistikli Sonuç Analizi:**  
-  Test sonunda, her kategori için yüzdelik “risk eğilimi” grafikleri sunulur.
+## Etkinlik ekleme / güncelleme
+Etkinlikler `data/events.json` içinde bir dizi (array) olarak tutulur. Basit bir örnek:
+```json
+{
+  "slug": "tiyatro-perde",
+  "title": "Perde Tiyatro Oyunu",
+  "cover": "https://example.com/cover.jpg",
+  "date": "2025-11-05T18:00:00Z",
+  "excerpt": "Bağımlılık hakkında farkındalık etkinliği.",
+  "content": "<p>Detaylı içerik burada yer alır.</p>",
+  "gallery": [
+    "https://example.com/img1.jpg",
+    "https://example.com/img2.jpg"
+  ]
+}
+```
 
-- **Yerel Kayıt & Gizli Rapor:**  
-  Sonuçlar cihazda güvenli şekilde saklanır ve sadece belirli PIN ile erişilen `admin.html` sayfasında görüntülenebilir.
+- `slug`: detay sayfasına bağlantı için benzersiz kısa anahtar
+- `date`: ISO 8601 formatlı tarih (isteğe bağlı; sıralama için kullanılır)
+- `cover`, `gallery`: görüntü URL'leri
+- `content`: HTML içeriği (güvenlik/escape politikanızı göz önünde bulundurun)
 
-- **Mobil Uyumluluk:**  
-  Tamamen responsive tasarım — bilgisayar, tablet ve mobil cihazlarda kusursuz çalışır.
+## Katkıda Bulunma
+- Hataları/istekleri GitHub Issues olarak açın.
+- Küçük düzeltmeler için fork → branch → PR workflow'ını kullanın.
 
-- **Yardım Kaynakları:**  
-  “Yardım Al” sayfasında Yeşilay, YEDAM (115), 183 ve 191 hatlarına yönlendirme yapılır.
-
----
-
-## 📂 Dosya Yapısı
-KontrolSende/
-│
-├── index.html              # Ana sayfa
-├── test.html               # Farkındalık testi sayfası
-├── etkinlikler.html        # Proje etkinlikleri
-├── yardim.html             # Yardım / destek hatları
-├── admin.html              # Gizli istatistik raporu (PIN korumalı)
-│
-├── css/
-│   └── style.css           # Tüm stil dosyası
-│
-├── js/
-│   └── main.js             # Menü + test + istatistik mantığı
-│
-├── .gitignore              # Gereksiz dosyaları hariç tutar
-└── README.md               # Proje tanıtımı ve dokümantasyonu
----
-
-## 🚀 Yayınlama (GitHub Pages)
-
-1. GitHub deposuna gir → **Settings → Pages**  
-2. **Branch:** `main`  
-   **Folder:** `/ (root)` seç → **Save**  
-3. 1–2 dakika içinde site aktif olur:  
-   👉 [https://ayexdws.github.io/KontrolSende/](https://ayexdws.github.io/KontrolSende/)
-
----
-
-## 🔒 Gizli Rapor Sayfası
-
-> Adres: `admin.html#AYEX-KEY-2025`
-
-Bu sayfa herkese açık değildir.  
-Test sonuçları yalnızca **tarayıcıda yerel olarak** saklanır ve bu anahtarı bilen kişi tarafından görüntülenebilir.  
-Menülerde link verilmez, `noindex` etiketiyle arama motorlarından gizlenmiştir.
-
----
-
-## 🧑‍💻 Geliştirici
-
-**Proje sahibi:** Ahmet Cemal ([@AYEXdws](https://github.com/AYEXdws))  
-Bu proje okul kapsamında geliştirilmiştir.  
-Tüm içerik ve tasarımlar eğitim amaçlıdır.
+## Lisans
+Bu proje MIT lisansı altındadır — ayrıntılar LICENSE dosyasında yer almaktadır.
 
 ---
-
-## 🧾 Lisans
-
-Bu proje **MIT Lisansı** altında paylaşılmıştır.  
-Kullanım serbesttir ancak kaynak gösterilmesi rica olunur.
+```

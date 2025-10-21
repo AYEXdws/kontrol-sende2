@@ -9,4 +9,15 @@
       "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
     ]
   }
+  
+  {
+    "slug": "tiyatro-perde2",
+    "title": "Perde Tiyatro Oyunu 2",
+    "cover": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
+    "excerpt": "Bağımlılığın sosyal etkilerini konu alan sahne performansı.",
+    "content": "<p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p><p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>",
+    "gallery": [
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
+    ]
+  }
 ]

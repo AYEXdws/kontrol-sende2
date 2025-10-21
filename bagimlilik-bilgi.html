@@ -1,70 +1,222 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bağımlılık Hakkında Bilgi - KontrolSende</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bağımlılık Kütüphanesi - KontrolSende</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Okul öğrencilerine yönelik basit ve güvenilir bağımlılık rehberi. Yardım ve günlük stratejiler." />
+  <style>
+    .toc { margin: 1rem 0; background:#f7f7fb; padding:1rem; border-radius:8px;}
+    .subtitle { margin-bottom: .5rem; color:#444; }
+    .page-content h2{margin-top:1.25rem}
+    .search-row{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem}
+    .search-row input{flex:1;padding:.5rem;border-radius:6px;border:1px solid #ddd}
+    .result-highlight{background: #fff7a8}
+    @media (max-width:600px){ .toc ul{columns:1} }
+    .tip{background:#eef7ff;padding:.6rem;border-left:4px solid #3aa0ff;margin:0.8rem 0;border-radius:6px}
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">KontrolSende</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNKilYHFaBRRI9ckep72aLc1H0OR0o3rbQusPKiywL42oEQ/viewform?usp=dialog">Test Et</a></li>
-                <li><a href="etkinlikler.html">Etkinlikler</a></li>
-                <li><a href="yardim.html">Yardım Al</a></li>
-                <li><a href="bagimlilik-bilgi.html" class="active">Bağımlılık hakkında bilgi al</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger-menu"><span></span><span></span><span></span></button>
-        </nav>
-    </header>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">KontrolSende</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNKilYHFaBRRI9ckep72aLc1H0OR0o3rbQusPKiywL42oEQ/viewform?usp=dialog">Test Et</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+        <li><a href="yardim.html">Yardım Al</a></li>
+        <li><a href="bagimlilik-bilgi.html" class="active">Bağımlılık Kütüphanesi</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-menu" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
 
-    <main>
-        <!-- Hero aligned with site's index hero styles -->
-        <section class="hero">
-            <div class="container">
-                <h1>Bağımlılık Nedir? Bilinçli Bir Rehber</h1>
-                <p>Bağımlılık; hem maddesel hem de davranışsal formlarda kendini gösterebilen, kişisel ve toplumsal yaşamı etkileyen karmaşık bir sağlık sorunudur. Aşağıda tanımı, nedenleri, belirtileri, tedavi yöntemleri ve destek kaynaklarıyla ilgili pratik ve güvenilir bilgiler bulacaksınız.</p>
-                <a href="yardim.html" class="cta-button">Yardıma İhtiyacım Var</a>
-            </div>
-        </section>
+  <main class="container page-content">
+    <section class="hero">
+      <div>
+        <h1>Bağımlılık Kütüphanesi</h1>
+        <p class="subtitle">Okul öğrencileri için anlaşılır, güvenilir ve yardım odaklı bilgiler. Eğer bir şey seni zor durumda bırakıyorsa yalnız değilsin.</p>
+        <a href="yardim.html" class="cta-button">Yardıma İhtiyacım Var</a>
+      </div>
+    </section>
 
-        <!-- Kapsamlı içerik, stil ve sınıflar index.html ile uyumlu -->
-        <section id="bilgi" class="info-section container">
-            <!-- (içerik aynen korunur) -->
-            <!-- ... -->
-        </section>
-
-        <!-- Etkinlikler ön izlemesi ve CTA'lar site ile uyumlu -->
-        <section class="activities-preview-section container">
-            <h2>Proje Etkinlikleri</h2>
-            <p>KontrolSende'nin düzenlediği seminerler, atölyeler ve farkındalık etkinlikleri hakkında bilgi alabilirsiniz.</p>
-
-            <!-- Dinamik etkinlik kapsayıcısı (events.json'dan doldurulacak) -->
-            <div class="activities-grid" data-source="events"></div>
-
-            <a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a>
-        </section>
-
-        <!-- Yardım çağrısı -->
-        <section class="help-cta container">
-            <h2>Hemen Yardım Al</h2>
-            <p>Eğer acil bir durumda iseniz lütfen yerel acil servisi (112) arayın. Destek almak için <a href="yardim.html">yardım sayfamızı</a> ziyaret edebilirsiniz.</p>
-            <a href="yardim.html" class="cta-button secondary">Destek Noktalarını Gör</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+    <div class="toc container" aria-label="İçindekiler ve hızlı erişim">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <h2 style="margin:0">İçindekiler</h2>
+        <div class="search-row" style="max-width:420px">
+          <input id="page-search" placeholder="Sayfada ara (örn. tetikleyici, nefes)" aria-label="Sayfada ara" />
+          <button id="search-clear" title="Temizle">Temizle</button>
         </div>
-    </footer>
+      </div>
+      <ul>
+        <li><a href="#nedir">Bağımlılık nedir? (kısa ve net)</a></li>
+        <li><a href="#turlar">Hangi türler var? (okul için önemli olanlar)</a></li>
+        <li><a href="#belirtiler">Belirtiler ve ne fark edilir?</a></li>
+        <li><a href="#ne-yap">Ne yapmalısın? (acil adımlar)</a></li>
+        <li><a href="#gunluk">Günlük stratejiler ve başa çıkma</a></li>
+        <li><a href="#okul">Okul & Aile için pratik öneriler</a></li>
+        <li><a href="#sss">SSS</a></li>
+        <li><a href="#kaynaklar">Güvenilir kaynaklar ve iletişim</a></li>
+      </ul>
+    </div>
 
-    <script src="js/main.js"></script>
+    <article id="nedir" class="info-section container">
+      <h2>Bağımlılık nedir? (kısa ve net)</h2>
+      <p>Bağımlılık, bir alışkanlığın hayatını zorlaştıracak şekilde elinden kaçmasıdır. Bazen bu davranışlar kişinin derslerini, arkadaşlıklarını veya uyku düzenini etkileyebilir. Burada amaç suçlamak değil; anlamak ve yardım etmektir.</p>
+      <div class="tip"><strong>Not:</strong> Bu sayfada kimseyi küçük düşürmek yok. Eğer senin ya da bir arkadaşının bir sorunu varsa yardım istemek güçlü bir davranıştır.</div>
+    </article>
+
+    <article id="turlar" class="info-section container">
+      <h2>Hangi türler var? (okul için önemli olanlar)</h2>
+      <p>Okul ortamında daha sık gördüğümüz bazı örnekler:</p>
+      <ul>
+        <li><strong>Davranışsal alışkanlıklar:</strong> Oyun veya sosyal medyada aşırı zaman geçirmek, internette kendini kaybetmek, sürekli alışveriş yapmak veya yeme alışkanlıkları.</li>
+        <li><strong>Rutin dışı davranışlar:</strong> Uyku düzeninin bozulması, dersleri kaçırma, arkadaşlarla yaşanan kopukluklar.</li>
+      </ul>
+      <p>Burada madde isimlerine girmiyoruz; eğer özel bir konu seni endişelendiriyorsa güvenilir bir yetişkinle konuş.</p>
+    </article>
+
+    <article id="belirtiler" class="info-section container">
+      <h2>Belirtiler ve ne fark edilir?</h2>
+      <p>Arkadaşında veya kendinde şu değişiklikler varsa dikkat etmek gerekebilir:</p>
+      <ul>
+        <li>Eskiden sevdiği etkinliklerden uzaklaşma</li>
+        <li>Ders başarısında ani düşüş</li>
+        <li>Uyku veya yeme düzeninde büyük değişiklikler</li>
+        <li>Sosyal izolasyon veya arkadaş çevresinde ani değişiklik</li>
+        <li>Sürekli aynı davranışı tekrarlama ve bunu bırakmada zorlanma</li>
+      </ul>
+      <p>Tek bir işaret tek başına açıklama değildir; ancak birkaç tanesi birlikteyse konuşmak iyi bir fikirdir.</p>
+    </article>
+
+    <article id="ne-yap" class="info-section container">
+      <h2>Ne yapmalısın? (acil adımlar)</h2>
+      <ol>
+        <li>Eğer kendin tehlikedeysen hemen bir yetişkine veya acil servise başvur (112).</li>
+        <li>Güvendiğin bir öğretmen, okul rehber öğretmeni veya aile üyesiyle konuş.</li>
+        <li>Eğer bir arkadaşın zor durumdaysa, onu yargılamadan dinle ve yardım araması için destek ol.</li>
+        <li>Okul rehberlik servisini veya yerel sağlık hattını ara; profesyonel yardım gerekip gerekmediğini birlikte değerlendirirsiniz.</li>
+      </ol>
+    </article>
+
+    <article id="gunluk" class="info-section container">
+      <h2>Günlük stratejiler ve başa çıkma</h2>
+      <p>Hemen uygulayabileceğin kısa yöntemler:</p>
+      <ul>
+        <li>Günlük rutin kur: yatma ve uyanma saatlerini sabitle.</li>
+        <li>Süre sınırı koy: belirli bir süre sonra telefonunu uçak moduna al.</li>
+        <li>Kısa nefes ve rahatlama egzersizleri: 4-2-6 nefes tekniği (4 saniye al, 2 tut, 6 ver).</li>
+        <li>Alternatif aktiviteler: yürüyüş, spor, bir hobi veya arkadaşla yüz yüze buluşma.</li>
+        <li>Tetikleyiciyi yaz: hangi durumlarda kontrolü kaybettiğini not et; sonra bu durumları planla yönet.</li>
+      </ul>
+      <details>
+        <summary>Kriz planı örneği</summary>
+        <ol>
+          <li>Derin nefes al 4-2-6. Eğer işe yaramazsa, bir yetişkine mesaj at.</li>
+          <li>10 dakika dışarı çık ve yürüyüş yap.</li>
+          <li>Okul rehber öğretmenini ara veya mesaj bırak.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article id="okul" class="info-section container">
+      <h2>Okul & Aile için pratik öneriler</h2>
+      <p>Öğrenciysen:</p>
+      <ul>
+        <li>Güvendiğin bir yetişkinle erken konuş; sorun büyümeden destek almak daha kolaydır.</li>
+        <li>Rehber öğretmene randevu iste; okulun sunduğu destekleri öğren.</li>
+      </ul>
+      <p>Ebeveyn/öğretmensen:</p>
+      <ul>
+        <li>Suçlamak yerine dinleyin. "Neden" değil "nasıl" çözebileceğinize odaklanın.</li>
+        <li>Net ama destekleyici sınırlar koyun; profesyonel yardım gerekiyorsa yönlendirin.</li>
+      </ul>
+    </article>
+
+    <section id="sss" class="info-section container">
+      <h2>SSS</h2>
+      <details>
+        <summary>Bir arkadaşımda değişiklik gördüm, ne yapmalıyım?</summary>
+        <p>Önce güvenli bir şekilde konuş: "Son zamanlarda seni farklı görüyorum, iyi misin?" Yargılamadan dinle ve beraber bir yetişkinden yardım alın.</p>
+      </details>
+      <details>
+        <summary>Yardım istemek zayıflık mıdır?</summary>
+        <p>Hayır. Yardım istemek sorunu çözmenin ilk güçlü adımıdır.</p>
+      </details>
+      <details>
+        <summary>Eğer gizlilik istiyorsa ne yaparım?</summary>
+        <p>Saygı göster, ama kişiyi tehlikeye atacak bir durum varsa (kendine zarar verme, başkalarına zarar) mutlaka yetkili bir yetişkinle paylaşın.</p>
+      </details>
+    </section>
+
+    <section id="kaynaklar" class="info-section container">
+      <h2>Güvenilir kaynaklar ve iletişim</h2>
+      <ul>
+        <li><a href="https://www.saglik.gov.tr" target="_blank" rel="noopener">Sağlık Bakanlığı</a></li>
+        <li><a href="https://www.yesilay.org.tr" target="_blank" rel="noopener">Yeşilay</a> (genel bilgilendirme ve destek)</li>
+        <li><a href="yardim.html">KontrolSende — Yardım ve Destek</a></li>
+      </ul>
+      <h3>Acil Durum</h3>
+      <p>Eğer kendinize veya başkasına zarar verme riski varsa, hemen yerel acil servisi (112) arayın.</p>
+      <h3>Okul İletişim</h3>
+      <p>Okul rehber öğretmeni: <em>okulunuzun rehber iletişim bilgisi</em> (örnek: +90 5xx xxx xx xx)</p>
+    </section>
+
+    <section class="activities-preview-section container">
+      <h2>Proje Etkinlikleri</h2>
+      <p>KontrolSende'nin düzenlediği seminerler ve atölyeler hakkında bilgi alabilirsiniz.</p>
+      <div class="activities-grid" data-source="events"></div>
+      <a href="etkinlikler.html" class="cta-button">Tüm Etkinlikler</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const input = document.getElementById('page-search');
+      const clearBtn = document.getElementById('search-clear');
+      function clearHighlights(){
+        document.querySelectorAll('.result-highlight').forEach(el => {
+          el.classList.remove('result-highlight');
+        });
+      }
+      function searchPage(q){
+        clearHighlights();
+        if(!q) return;
+        const terms = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+        if(!terms.length) return;
+        const nodes = Array.from(document.querySelectorAll('.page-content h2, .page-content h3, .page-content p, .page-content li'));
+        nodes.forEach(n=>{
+          const text = (n.textContent||'').toLowerCase();
+          if(terms.every(t=> text.includes(t))) {
+            n.classList.add('result-highlight');
+            if(n.scrollIntoView) n.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        });
+      }
+      if(input){
+        input.addEventListener('keyup', (e)=>{
+          if(e.key === 'Enter'){ searchPage(input.value); }
+        });
+      }
+      if(clearBtn){
+        clearBtn.addEventListener('click', ()=>{
+          input.value='';
+          clearHighlights();
+          input.focus();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

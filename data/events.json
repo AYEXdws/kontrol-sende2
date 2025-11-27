@@ -4,19 +4,17 @@
     "title": "Perde Tiyatro Oyunu",
     "cover": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
     "excerpt": "Bağımlılığın sosyal etkilerini konu alan sahne performansı.",
-    "content": "<p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p><p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>",
+    "content": "<p>Okul tiyatro kulübümüzün hazırladığı Perde oyunu yoğun ilgi gördü.</p><p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>",
     "gallery": [
       "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
     ]
   },
-    {
-    "slug": "tiyatro-perde2",
-    "title": "Perde Tiyatro Oyunu",
-    "cover": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200",
-    "excerpt": "Bağımlılığın sosyal etkilerini konu alan sahne performansı.",
-    "content": "<p>Okul tiyatro kulübümüzün hazırladığı “Perde” oyunu yoğun ilgi gördü.</p><p>Oyun, bir gencin içsel yolculuğunu ve akran etkisini ele aldı.</p>",
-    "gallery": [
-      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?w=1200"
-    ]
+  {
+    "slug": "bagimlilik-analizi",
+    "title": "Davranış & Bağımlılık Analizi",
+    "cover": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200",
+    "excerpt": "Duygular, refleksler ve kontrol duygusu üzerine modern bir davranış analizi.",
+    "content": "<p>Bu çalışma, modern alışkanlık döngülerinin insan zihnini nasıl şekillendirdiğini inceleyen derin bir analizdir. Sadece sigara ya da dijital kullanım gibi görünen yüzey davranışlarını değil, bu davranışları tetikleyen duygusal boşlukları, zihinsel refleksleri ve kontrol yanılsamasını ele alır.</p><p>Veriler, birçok kişinin zararlı olduğunu bilmesine rağmen alışkanlıklarını kendi isteğiyle sürdürdüğünü düşündüğünü gösterir. Oysa davranışın altına inildiğinde, kişinin çoğu zaman otomatikleşmiş bir döngünün içinde olduğu ortaya çıkar. Bu döngüyü besleyen temel etkenler arasında can sıkıntısı, duygu yükü, yalnızlık ve anlık rahatlama ihtiyacı öne çıkar.</p><p>Dijital tarafta da benzer bir tablo vardır. Telefon, çoğu zaman sadece zaman geçirmek için elde tutulduğunu sanarken, gerçekte beyin için küçük ödül kırıntıları dağıtan bir mekanizmaya dönüşür. Bildirimler, sonsuz kaydırma, kısa içerikler; hepsi fark edilmeden yeni bir bağımlılık zemini yaratır.</p><p>Bu analizde öne çıkan en çarpıcı noktalardan biri şudur: İnsan, farkında olmadığı alışkanlıklarıyla, farkında sandığından çok daha fazla yönetilir. İster sigara olsun, ister telefon, ister başka bir rutin; kişi çoğu zaman benliği ile alışkanlığı birbirine karıştırır.</p><p>Günlük hayatta sık duyulan bir cümle vardır: İstersem bırakırım. Bu cümle çoğu zaman bir gerçeklikten çok, kişinin kendine sunduğu bir güven paketidir. Bu analiz o paketin içini açar ve şu soruyu masaya bırakır: Kontrol gerçekten sende mi, yoksa sadece öyle olduğunu mu düşünüyorsun?</p><p>Kişinin nefes aralarında bile fark etmeden verdiği küçük kararlar, gelecekteki alışkanlıklarını inşa eder. Küçük bir tetiklenme, büyük bir davranışa dönüşebilir. Analiz sonuçlarına göre, yeni nesil alışkanlıkların önemli bir kısmı düşünmeden yapılan eylemler kategorisine kaymış durumdadır. Bu da kişiyi seçen taraftan, seçilen tarafa doğru sürükler.</p><p>Bu etkinlik ya da bu rapor, kimseye doğrudan bırak ya da başla demez. Bunun yerine şunu hatırlatır: Her alışkanlık ya seni güçlendirir ya da senden bir şey alır. Hangisi olacağına karar verecek olan tek kişi sensin.</p><p>Kontrol Sende mesajının özü tam olarak budur. Hayatın hızında kaybolan o küçük kararların yönünü yeniden fark etmek ve o kararların düşündüğünden daha büyük bir etkiye sahip olduğunu görmek.</p><p style='text-align:center; margin-top:24px; font-size:18px; opacity:0.85;'><em>Günün sonunda tek soru kalır:</em><br><strong style='font-size:22px;'>Dümeni kim tutuyor?</strong></p>",
+    "gallery": []
   }
 ]

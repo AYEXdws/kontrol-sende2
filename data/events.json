@@ -14,7 +14,116 @@
     "title": "Davranış & Bağımlılık Analizi",
     "cover": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200",
     "excerpt": "Duygular, refleksler ve kontrol duygusu üzerine modern bir davranış analizi.",
-    "content": "<p>Bu çalışma, modern alışkanlık döngülerinin insan zihnini nasıl şekillendirdiğini inceleyen derin bir analizdir. Sadece sigara ya da dijital kullanım gibi görünen yüzey davranışlarını değil, bu davranışları tetikleyen duygusal boşlukları, zihinsel refleksleri ve kontrol yanılsamasını ele alır.</p><p>Veriler, birçok kişinin zararlı olduğunu bilmesine rağmen alışkanlıklarını kendi isteğiyle sürdürdüğünü düşündüğünü gösterir. Oysa davranışın altına inildiğinde, kişinin çoğu zaman otomatikleşmiş bir döngünün içinde olduğu ortaya çıkar. Bu döngüyü besleyen temel etkenler arasında can sıkıntısı, duygu yükü, yalnızlık ve anlık rahatlama ihtiyacı öne çıkar.</p><p>Dijital tarafta da benzer bir tablo vardır. Telefon, çoğu zaman sadece zaman geçirmek için elde tutulduğunu sanarken, gerçekte beyin için küçük ödül kırıntıları dağıtan bir mekanizmaya dönüşür. Bildirimler, sonsuz kaydırma, kısa içerikler; hepsi fark edilmeden yeni bir bağımlılık zemini yaratır.</p><p>Bu analizde öne çıkan en çarpıcı noktalardan biri şudur: İnsan, farkında olmadığı alışkanlıklarıyla, farkında sandığından çok daha fazla yönetilir. İster sigara olsun, ister telefon, ister başka bir rutin; kişi çoğu zaman benliği ile alışkanlığı birbirine karıştırır.</p><p>Günlük hayatta sık duyulan bir cümle vardır: İstersem bırakırım. Bu cümle çoğu zaman bir gerçeklikten çok, kişinin kendine sunduğu bir güven paketidir. Bu analiz o paketin içini açar ve şu soruyu masaya bırakır: Kontrol gerçekten sende mi, yoksa sadece öyle olduğunu mu düşünüyorsun?</p><p>Kişinin nefes aralarında bile fark etmeden verdiği küçük kararlar, gelecekteki alışkanlıklarını inşa eder. Küçük bir tetiklenme, büyük bir davranışa dönüşebilir. Analiz sonuçlarına göre, yeni nesil alışkanlıkların önemli bir kısmı düşünmeden yapılan eylemler kategorisine kaymış durumdadır. Bu da kişiyi seçen taraftan, seçilen tarafa doğru sürükler.</p><p>Bu etkinlik ya da bu rapor, kimseye doğrudan bırak ya da başla demez. Bunun yerine şunu hatırlatır: Her alışkanlık ya seni güçlendirir ya da senden bir şey alır. Hangisi olacağına karar verecek olan tek kişi sensin.</p><p>Kontrol Sende mesajının özü tam olarak budur. Hayatın hızında kaybolan o küçük kararların yönünü yeniden fark etmek ve o kararların düşündüğünden daha büyük bir etkiye sahip olduğunu görmek.</p><p style='text-align:center; margin-top:24px; font-size:18px; opacity:0.85;'><em>Günün sonunda tek soru kalır:</em><br><strong style='font-size:22px;'>Dümeni kim tutuyor?</strong></p>",
+    "content": "<section>
+
+  <p>
+    Bu rapor; genç bireylerin sigara, dijital kullanım ve davranış döngüleri üzerine oluşturulan
+    kapsamlı bir farkındalık çalışmasının derin analizini sunar. Veriler sadece
+    yüzey davranışlarını değil, bu davranışları sürdüren <strong>duygusal, bilişsel ve
+    refleksif mekanizmaları</strong> açığa çıkarır.
+  </p>
+
+  <div style="margin: 30px 0; padding: 25px; background:#f7f7f7; border-left:4px solid #111; border-radius:10px;">
+    <p style="font-size:18px; margin:0;">
+      <strong>Bu analiz, yalnızca “kim ne kadar içiyor” değil;</strong><br>
+      <span style="opacity:0.7;">“Bu davranışın arkasındaki güç ne?”</span> sorusuna cevap verir.
+    </p>
+  </div>
+
+  <h2>🔎 Temel İstatistikler</h2>
+
+  <p>Aşağıdaki oranlar, bireylerin alışkanlık döngüsü ve kontrol algısına dair güçlü ipuçları sunar:</p>
+
+  <ul style="font-size:17px; line-height:1.7;">
+    <li><strong>%57</strong> → Hiç sigara denememiş.</li>
+    <li><strong>%75</strong> → Son 30 gün içinde sigara kullanmamış.</li>
+    <li><strong>%44</strong> → Sigara içemediğinde huzursuzluk yaşayan.</li>
+    <li><strong>%36</strong> → “İstersem bırakırım.” diyen ama emin olmayan.</li>
+    <li><strong>%31</strong> → Stresle başa çıkmak için telefona yönelen.</li>
+    <li><strong>%41</strong> → Günlük yaşamda en çok telefonu kullanan.</li>
+    <li><strong>%38</strong> → Dijital kullanımın hayatı bazen olumsuz etkilediğini söyleyen.</li>
+    <li><strong>%53</strong> → Kendinde kontrol etmekte zorlandığı bir davranış olmadığını düşünen.</li>
+    <li><strong>%39</strong> → Anketin kendisini düşündürmediğini söyleyen.</li>
+  </ul>
+
+  <h2>🧠 Davranışın Gizli Anatomisi</h2>
+
+  <p>
+    İstatistikler yüzeyde sade görünse de, altında çok daha büyük bir tablo saklıdır.
+    Veriler, genç bireylerin önemli bir çoğunluğunda
+    <strong>farkındalık varmış gibi görünse de</strong>
+    davranışların çoğunun otomatikleştiğini göstermektedir.
+  </p>
+
+  <div style="background:#fff5e9; padding:20px; border-radius:10px; border-left:4px solid #ff9800; margin-bottom:20px;">
+    <p style="margin:0;">
+      <strong>“Huzursuzluk”</strong> cevabının yüksekliği, nikotin ya da dijital uyarıcıların
+      psikolojik bir rahatlama aracı haline geldiğini;  
+      <br><strong>“İstersem bırakırım.”</strong> cevabındaki kararsızlık ise kontrol duygusunun
+      gerçek değil, <em>yanılsama</em> olduğunu gösterir.
+    </p>
+  </div>
+
+  <h2>📱 Dijital Döngü: Yeni Nesil Bağımlılık</h2>
+
+  <p>
+    Günlük yaşamda en çok kullanılan aracın <strong>%41 ile telefon</strong> olması şaşırtıcı değildir.
+    Fakat asıl çarpıcı olan şudur:
+  </p>
+
+  <p style="font-size:18px; text-align:center; margin: 25px 0;">
+    <strong>Telefon bir araç olmaktan çıkmış, dikkat döngüsünün merkezine oturmuştur.</strong>
+  </p>
+
+  <p>
+    Bildirimler → minik ödül hissi  
+    Kısa videolar → hızlı dopamin  
+    Sonsuz kaydırma → zaman algısını bulandırma  
+  </p>
+
+  <p>
+    Bu döngü, sigara kadar güçlü olmasa da aynı psikolojik mekanizmayı kullanır:
+    <strong>“Anlık rahatlama”</strong>.
+  </p>
+
+  <h2>🔥 Kontrol Algısı ve Gerçek</h2>
+
+  <p>
+    Katılımcıların <strong>%53’ü</strong> herhangi bir davranışta kontrol kaybı yaşamadığını söylerken,
+    aynı grubun dijital kullanım, tetikleyici duygular ve rutin bağımlılık davranışlarında
+    yüksek oranlara sahip olması, “kontrolün fark edilmeden devredildiği” fikrini güçlendiriyor.
+  </p>
+
+  <p>
+    Bir başka dikkat çekici bulgu ise
+    <strong>%39'un anketin kendisini düşündürmediğini</strong>
+    söylemesidir.  
+    Bu, farkındalığın henüz bilinç düzeyine çıkmadığını ve bireyin
+    kendi davranışını dışarıdan gözlemleyemediğini gösterir.
+  </p>
+
+  <div style="margin: 35px 0; padding: 25px; background:#e9f5ff; border-left:4px solid #0077ff; border-radius:10px;">
+    <p style="font-size:17px; margin:0;">
+      <strong>Gerçek kontrol</strong>, sadece davranışı sürdürebilmek değil,<br>
+      <span style="opacity:0.75;">o davranışın seni ne kadar yönlendirdiğini fark edebilmektir.</span>
+    </p>
+  </div>
+
+  <h2>🌀 Sonuç: Dümeni Kim Tutuyor?</h2>
+
+  <p>
+    Bu rapor, tek bir alışkanlığı değil;
+    bireyin <strong>hayatındaki kontrol mekanizmalarını</strong> inceler.  
+    İster sigara olsun, ister sosyal medya, ister düşünmeden yapılan küçük eylemler…
+    Hepsi kişinin “benlik gücü” ile “alışkanlık kontrolü” arasındaki dengeyi belirler.
+  </p>
+
+  <p style="text-align:center; margin-top:40px; font-size:20px;">
+    <em>Günün sonunda tek bir soru kalır:</em><br><br>
+    <strong style="font-size:26px;">Gerçekte kim yönetiyor?</strong>
+  </p>
+
+</section>",
     "gallery": []
   }
 ]

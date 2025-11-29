@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^A7xQ2b$ bagimlilik-bilgi.html [L]
+RewriteRule ^P9mZ4k$ etkinlikler.html [L]
+RewriteRule ^T3vL8r$ yardim.html [L]
+RewriteRule ^K6sW1d$ ayna-odasi.html [L]
+RewriteRule ^R8qN5p$ kirmizi-oda.html [L]

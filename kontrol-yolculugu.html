@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontrol Yolculuğun - KontrolSende</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="page-bagimlilik">
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">KontrolSende</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+        <li><a href="yardim.html">Yardım Al</a></li>
+        <li><a href="bagimlilik-bilgi.html">Bağımlılık Kütüphanesi</a></li>
+        <li><a href="kontrol-yolculugu.html" class="active">Kontrol Yolculuğun</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero-sub">
+      <div class="container">
+        <h1>KONTROL YOLCULUĞUN</h1>
+        <p>
+          Bu sayfa, “bırakayım mı, bırakmayayım mı?” ikilemini değil;
+          <strong>günün sonunda direksiyonda kim var?</strong> sorusunu çalışmak için.
+          Test çözmek yok; sadece küçük ama gerçek adımlar var.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3 ADIMLIK MODEL -->
+    <section class="info-section container">
+      <h2>3 Adım: Fark Et → Dene → Değiştir</h2>
+      <p class="section-intro">
+        Bağımlılık tek hamlede kırılan bir zincir değil; 
+        her gün atılan küçük adımların toplamı. Aşağıdaki üç blok, 
+        öğrencilerin kendi hızında ilerleyebilmesi için tasarlandı.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>1. Fark Et</h3>
+          <p>
+            Bugün hangi durumda “otomatik” hareket ettin?
+            Elin telefona ne zaman gitti, sigara fikri ne zaman aklına geldi,
+            hangi duyguyla birlikte geldi?
+          </p>
+          <p>
+            Not alman şart değil; sadece <em>fark ettiğin anı</em> yakalaman bile
+            zihninde yeni bir iz açar.
+          </p>
+        </div>
+        <div class="card">
+          <h3>2. Dene</h3>
+          <p>
+            Her alışkanlık anında, en az bir kez
+            <strong>farklı bir şey dene</strong>:
+          </p>
+          <ul>
+            <li>4-2-6 nefes (4 al, 2 tut, 6 ver)</li>
+            <li>2 dakika odadan çık</li>
+            <li>Birine “şu an iyi hissetmiyorum” de</li>
+          </ul>
+          <p>Olmasa bile, denemek bile sistemde çatlak açar.</p>
+        </div>
+        <div class="card">
+          <h3>3. Değiştir</h3>
+          <p>
+            Değişim; “bir daha asla yapmam” cümlesiyle değil,
+            <strong>her gün %1’lik</strong> kaydırmalarla gelir.
+          </p>
+          <p>
+            Bu bölümde, günün sonunda kendine küçük bir rapor yazıyorsun:
+            <em>“Bugün neyi bir tık daha iyi yaptım?”</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GÜNLÜK KONTROL CHECKLIST -->
+    <section class="info-section container">
+      <h2>Bugünün Kontrol Listesi</h2>
+      <p class="section-intro">
+        Aşağıdaki kutuları doldurmak, kimseye gösterilmeyen,
+        sadece seninle aranda olan küçük bir sözleşme gibi.
+        İşaretlediklerin tarayıcında saklanır (sayfayı kapatsan da kalır).
+      </p>
+
+      <div class="quiz-container">
+        <div class="question-container">
+          <p style="font-size:1.1rem; margin-bottom:1rem;">
+            Bugün en az bir kez aşağıdakilerden hangilerini yapabildin?
+          </p>
+
+          <ul class="checklist" style="list-style:none; padding:0; margin:0;">
+            <li class="checklist-item">
+              <label>
+                <input type="checkbox" class="control-check" data-key="tetikleyici-not"
+                />
+                Bir <strong>tetikleyici anı</strong> fark ettim (canım bir şeye çok çekildiğini hissettiğim anı gördüm).
+              </label>
+            </li>
+            <li class="checklist-item">
+              <label>
+                <input type="checkbox" class="control-check" data-key="nefes-deneme"
+                />
+                Otomatik davranmak yerine <strong>nefes / mola</strong> vermeyi denedim.
+              </label>
+            </li>
+            <li class="checklist-item">
+              <label>
+                <input type="checkbox" class="control-check" data-key="konusma"
+                />
+                Birine <strong>“iyi hissetmiyorum”</strong> ya da “böyle böyle oldu” diye
+                ufak da olsa bir şey açtım.
+              </label>
+            </li>
+            <li class="checklist-item">
+              <label>
+                <input type="checkbox" class="control-check" data-key="zaman-kisaltma"
+                />
+                Telefon / oyun / sigara gibi bir davranışta
+                geçirdiğim zamanı <strong>bilerek 5 dakika kısalttım</strong>.
+              </label>
+            </li>
+            <li class="checklist-item">
+              <label>
+                <input type="checkbox" class="control-check" data-key="gun-sonu-dusunme"
+                />
+                Günün sonunda <strong>en az 1 dakika</strong> “Bugün bende ne değişti?”
+                diye düşündüm.
+              </label>
+            </li>
+          </ul>
+
+          <button id="clear-checklist" class="cta-button secondary" style="margin-top:12px;">
+            Tüm İşaretleri Temizle
+          </button>
+
+          <div id="daily-message" style="margin-top:18px; font-size:0.95rem; opacity:0.85;">
+            Bugün ne kadarını başardığın önemli değil; 
+            önemli olan <strong>otomatik pilottan çıkmayı denemen</strong>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YARDIMA KÖPRÜ -->
+    <section class="help-cta">
+      <div class="container">
+        <h2>Tek Başına Taşımak Zorunda Değilsin</h2>
+        <p>
+          Eğer bu listeyi doldururken zorlanıyorsan veya “tek başıma yetmiyor” diyorsan,
+          bu zaten yardıma başvurman gerektiğinin en net işaretlerinden biri.
+        </p>
+        <a href="yardim.html" class="cta-button secondary">Yardım Alabileceğin Yerleri Gör</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Bu sayfaya özel minik JS (checklist için) -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'kontrol_sende_checklist_v1';
+      const checks = Array.from(document.querySelectorAll('.control-check'));
+      const clearBtn = document.getElementById('clear-checklist');
+      const msg = document.getElementById('daily-message');
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          checks.forEach((inp) => {
+            const key = inp.dataset.key;
+            if (data[key]) inp.checked = true;
+          });
+          updateMessage();
+        } catch (e) { /* sessiz geç */ }
+      }
+
+      function saveState() {
+        const data = {};
+        checks.forEach((inp) => {
+          data[inp.dataset.key] = inp.checked;
+        });
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) { /* sessiz geç */ }
+        updateMessage();
+      }
+
+      function updateMessage() {
+        const doneCount = checks.filter((c) => c.checked).length;
+        if (!msg) return;
+        if (doneCount === 0) {
+          msg.textContent = 'Bugün henüz hiçbir kutu dolu değil. Sorun değil; bir tanesini bile işaretlemek başlangıçtır.';
+        } else if (doneCount <= 2) {
+          msg.textContent = 'Güzel. Her işaret, otomatik pilottan bir saniyelik çıkış demek. Küçük gibi görünen şeyler, toplamda büyük etki yapar.';
+        } else if (doneCount <= 4) {
+          msg.textContent = 'Bugün kendine gerçekten alan açmışsın. Bu liste, bir yarış değil; ama attığın adımlar ciddi fark yaratıyor.';
+        } else {
+          msg.textContent = 'Bugün direksiyonda bariz şekilde sendin. Yarın da yüzde yüz olman gerekmiyor; sadece bu bakışı kaybetme.';
+        }
+      }
+
+      checks.forEach((inp) => {
+        inp.addEventListener('change', saveState);
+      });
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          checks.forEach((inp) => (inp.checked = false));
+          saveState();
+        });
+      }
+
+      loadState();
+    })();
+  </script>
+</body>
+</html>

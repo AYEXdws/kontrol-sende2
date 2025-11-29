@@ -283,3 +283,32 @@ footer { background: #2b2b2b; color: #ddd; text-align: center; padding: 18px; fo
 @media (max-width:768px){
   .page-bagimlilik .sticky-cta { display: none !important; }
 }
+/* PC (büyük ekran) görünümünü düzeltme */
+@media (min-width: 1024px) {
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .info-cards .card {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .quick-summary .card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+.result-highlight {
+  background: #fff3a6 !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+

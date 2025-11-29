@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kırmızı Oda - KontrolSende</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <meta name="description" content="KontrolSende Kırmızı Oda: öğrenciler için tetikleyiciler, kırılma noktaları ve güvenli yüzleşme alanı.">
+  <style>
+    /* Bu sayfaya özel hafif koyu tema dokunuşları (okul ortamına uygun) */
+    body.page-kirmizi-oda {
+      background: radial-gradient(circle at top, #2a1a1f 0, #06060a 45%, #050509 100%);
+      color: #f7f7f7;
+    }
+    body.page-kirmizi-oda .hero-sub {
+      background: linear-gradient(135deg, rgba(180,30,60,0.95), rgba(40,12,24,0.96));
+      color: #fff;
+    }
+    body.page-kirmizi-oda .hero-sub p {
+      max-width: 720px;
+    }
+    body.page-kirmizi-oda .info-section {
+      background: rgba(8,8,12,0.52);
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 2.2rem;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    body.page-kirmizi-oda .info-section h2,
+    body.page-kirmizi-oda .info-section h3 {
+      color: #ffe1e8;
+    }
+    body.page-kirmizi-oda .section-intro {
+      color: #f3f3f3;
+      opacity: 0.92;
+    }
+    body.page-kirmizi-oda .info-cards .card {
+      background: rgba(14,14,20,0.85);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.45);
+    }
+    body.page-kirmizi-oda .info-cards .card p,
+    body.page-kirmizi-oda .info-cards .card li {
+      color: #f4f4f4;
+    }
+    body.page-kirmizi-oda .note,
+    body.page-kirmizi-oda .tip {
+      border-radius: 10px;
+    }
+    body.page-kirmizi-oda a {
+      color: #ffb3c4;
+    }
+    body.page-kirmizi-oda .cta-button {
+      background: #ff3359;
+      border: none;
+    }
+    body.page-kirmizi-oda .cta-button.secondary {
+      background: transparent;
+      border: 1px solid #ff3359;
+      color: #ffdde4;
+    }
+    body.page-kirmizi-oda .choice-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0.75rem 0 0.4rem;
+    }
+    body.page-kirmizi-oda .choice-buttons button {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.35rem 0.7rem;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.06);
+      color: #f7f7f7;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.12s ease, border-color 0.2s ease;
+    }
+    body.page-kirmizi-oda .choice-buttons button:hover {
+      background: rgba(255,51,89,0.3);
+      border-color: #ff3359;
+      transform: translateY(-1px);
+    }
+    body.page-kirmizi-oda .choice-output {
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+      color: #ffe1e8;
+      min-height: 1.6rem;
+    }
+    body.page-kirmizi-oda .minute-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    body.page-kirmizi-oda .minute-list li::before {
+      content: "• ";
+      color: #ff8da4;
+    }
+    body.page-kirmizi-oda .safety-box {
+      background: rgba(10,40,24,0.8);
+      border-left: 4px solid #40d18f;
+      padding: 0.85rem 0.9rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      font-size: 0.92rem;
+    }
+    body.page-kirmizi-oda footer {
+      background: transparent;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 768px) {
+      body.page-kirmizi-oda .info-section {
+        padding: 1.4rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="page-bagimlilik page-kirmizi-oda">
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">KontrolSende</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+        <li><a href="yardim.html">Yardım Al</a></li>
+        <li><a href="bagimlilik-bilgi.html">Bağımlılık Kütüphanesi</a></li>
+        <li><a href="ayna-odasi.html">Ayna Odası</a></li>
+        <li><a href="kirmizi-oda.html" class="active">Kırmızı Oda</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-menu" aria-label="Menüyü aç/kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero-sub">
+      <div class="container">
+        <h1>KIRMIZI ODA</h1>
+        <p>
+          Burası; korkutmak için değil, <strong>gerçeği biraz daha çıplak görmek</strong> için tasarlandı.
+          Okuldasın, öğrenciysin ve hayatın çoğu ekranda, derste, arkadaş çevresinde akıyor.
+          Kırmızı Oda, bağımlılık sürecinin <em>en kritik anlarına</em> kısa senaryolar ve
+          küçük sorularla ışık tutan güvenli bir alan.
+        </p>
+        <p style="margin-top:.6rem;font-size:.9rem;opacity:.9;">
+          Eğer içeriği okurken rahatsızlık hissedersen, sayfayı kapatıp
+          <a href="ayna-odasi.html">Ayna Odası</a> veya
+          <a href="yardim.html">Yardım Al</a> sayfasına geçebilirsin.
+          Bu sayfa, yalnız başına başa çıkman için değil; fark edip paylaşman için var.
+        </p>
+      </div>
+    </section>
+
+    <!-- BÖLÜM 1: İLK TETİKLEYİCİ -->
+    <section class="info-section container">
+      <h2>1. Sahne • İlk Tetikleyici (03:12)</h2>
+      <p class="section-intro">
+        Bu sahne; telefon, oyun veya sosyal medya fark etmeksizin,
+        “Sadece bir bakacağım...” cümlesinin arka planını gösteriyor.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>Gece 03:12 – Oda Sessiz, Ekran Aydınlık</h3>
+          <p>
+            Yarın sınav var. Defter açık, kalem masada. Ama ekran çok daha parlak:
+          </p>
+          <ul>
+            <li>Bildirim çubuğunda: “Yeni video önerisi”</li>
+            <li>Mesajlarda: “Uyumadın mı hâlâ 😂”</li>
+            <li>Zihninde: “Biraz bakıp kapatırım.”</li>
+          </ul>
+          <p>
+            Parmağın ekrana giderken aklından şu üç cümle aynı anda geçer:
+          </p>
+          <ul>
+            <li>“Bu sefer farklı olacak.”</li>
+            <li>“Zaten çalışsam da yetişmez.”</li>
+            <li>“Kafam çok dolu, biraz dağıtmam lazım.”</li>
+          </ul>
+          <p class="note">
+            Bu üç cümle, dünyanın en yalnız cümlelerinden biridir.
+            Çünkü aslında hepsinin altında sessiz bir soru vardır:
+            <strong>“Ben şu an kendime nasıl iyi bakacağımı bilmiyorum.”</strong>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kendine Sor</h3>
+          <p>
+            Bu senaryoyu okurken, kendini suçlamak için değil,
+            sadece <strong>fark etmek için</strong> düşün:
+          </p>
+          <ul>
+            <li>En son ne zaman “Biraz bakıp kapatırım.” deyip kapatamadım?</li>
+            <li>O an gerçekten neye ihtiyacım vardı: dikkat dağıtmaya mı, yoksa birine “iyiyim değilim” demeye mi?</li>
+            <li>Bu soruyu bile kendime sormaktan kaçındığım zamanlar oldu mu?</li>
+          </ul>
+          <div class="tip">
+            Eğer bu sahne sana tanıdık geldiyse, bu “kötü bir öğrenci” olduğunu göstermez.
+            Sadece, zorlandığını ama bunu kimseye göstermemeye çalıştığını gösterir.
+            Bu bile başlı başına güçlü bir farkındalıktır.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BÖLÜM 2: 7 DAKİKALIK ARA -->
+    <section class="info-section container">
+      <h2>2. Sahne • 7 Dakikalık Ara</h2>
+      <p class="section-intro">
+        Telefonu, oyunu, sigarayı bir kenara bırakıp sadece
+        <strong>7 dakikalığına</strong> durduğunda neler olur?
+        Aşağıdaki liste, birçok öğrencinin bu anlarda anlattığı gerçek hislerden derlenmiştir.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>İlk 7 Dakikanın İçinden Geçenler</h3>
+          <ul class="minute-list">
+            <li><strong>1. dakika:</strong> “Ne yapacağım şimdi?” hissi.</li>
+            <li><strong>2. dakika:</strong> Sıkıntı, huzursuzluk, içini kemiren belirsiz bir boşluk.</li>
+            <li><strong>3. dakika:</strong> Kaç kere telefona/alışkanlığa uzanma isteği geldiğini fark etme.</li>
+            <li><strong>4. dakika:</strong> Odadaki sesleri, nefesini, kalp çarpıntını daha çok duymaya başlama.</li>
+            <li><strong>5. dakika:</strong> “Ben böyle hissetmemek için mi hep kaçıyorum acaba?” düşüncesi.</li>
+            <li><strong>6. dakika:</strong> Aslında bu duygunun seni öldürmediğini, sadece zorladığını fark etme.</li>
+            <li><strong>7. dakika:</strong> Küçük bir cümle: <strong>“Demek ki 7 dakika dayanabiliyorum.”</strong></li>
+          </ul>
+          <p class="note">
+            Bu 7 dakika, bağımlılığı bitirmez. Ama şunu ispatlar:
+            <strong>“Zincirin tamamı değil, bir halkası benim elimde.”</strong>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>İstersen Dene</h3>
+          <p>
+            Bu sayfayı okuduktan sonra, bugün bir yerde
+            <strong>7 dakikalık dürüst bir ara</strong> verebilirsin.
+          </p>
+          <ul>
+            <li>Telefonu başka odaya koy.</li>
+            <li>Derin nefes al: 4 saniye al, 2 saniye tut, 6 saniye ver.</li>
+            <li>İçinden geçenleri yargılamadan sadece izle.</li>
+          </ul>
+          <p class="tip">
+            Eğer bu 7 dakika bile sana fazla geldiyse, bu da bir bilgi:
+            <strong>yalnız başına zorlanıyorsun.</strong>
+            Bu noktada bir rehber öğretmen, arkadaş ya da aileyle
+            konuşmak, zinciri tek başına taşımaktan çok daha sağlıklıdır.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BÖLÜM 3: KIRILMA NOKTASI KARTI -->
+    <section class="info-section container">
+      <h2>3. Sahne • Kırılma Noktası Kartı</h2>
+      <p class="section-intro">
+        Şimdi küçük bir düşünce deneyi yapalım. Cevaplarını kimse görmeyecek.
+        Sadece seçeneklere tıkla ve altındaki cümleyi oku; bu, seni yargılamak için değil,
+        durumuna <strong>dışarıdan bakman</strong> için yazıldı.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>Soru 1 • Telefon/oyun/sosyal medya bir hafta olmasa...</h3>
+          <p>
+            Tamamen imkânsız olduğunu biliyoruz ama,
+            <strong>hayal et</strong>: Bir hafta boyunca telefon/oyun/sosyal medya olmasa
+            kendini daha çok nasıl hissederdin?
+          </p>
+
+          <div class="choice-buttons" data-question="q1">
+            <button data-answer="A">Daha özgür</button>
+            <button data-answer="B">Daha yalnız</button>
+            <button data-answer="C">Daha sıkılmış</button>
+            <button data-answer="D">Bilmiyorum</button>
+          </div>
+          <div class="choice-output" id="q1-output"></div>
+        </div>
+
+        <div class="card">
+          <h3>Soru 2 • En çok ne zaman kontrolü kaybediyorum?</h3>
+          <p>
+            Aşağıdaki durumlardan hangisi sende en çok tetikliyor?
+          </p>
+
+          <div class="choice-buttons" data-question="q2">
+            <button data-answer="A">Yalnız kaldığımda</button>
+            <button data-answer="B">Stresliyken / sınav döneminde</button>
+            <button data-answer="C">Arkadaş ortamında</button>
+            <button data-answer="D">Kendimi değersiz hissettiğimde</button>
+          </div>
+          <div class="choice-output" id="q2-output"></div>
+        </div>
+
+        <div class="card">
+          <h3>Soru 3 • Bu sayfayı kapattıktan sonra...</h3>
+          <p>
+            Kırmızı Oda’dan çıktıktan sonra ne yapmayı seçebilirsin?
+          </p>
+          <div class="choice-buttons" data-question="q3">
+            <button data-answer="A">Ayna Odası’na gidip sahneleri okumak</button>
+            <button data-answer="B">Bağımlılık Kütüphanesi’nden bilgi almak</button>
+            <button data-answer="C">Yardım Al sayfasına bakmak</button>
+            <button data-answer="D">Hiçbir şey yapmamak</button>
+          </div>
+          <div class="choice-output" id="q3-output"></div>
+
+          <div class="safety-box">
+            <strong>Güvenli Hatırlatma:</strong>
+            Ne seçersen seç, burada yaptığın okuma ve düşünme bile
+            <strong>yalnız olmadığının</strong> ve bu konuyu ciddiye aldığının bir göstergesidir.
+            Takıldığın yerde, bunu tek başına taşımak zorunda değilsin.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÇIKIŞ / GEÇİŞ BÖLÜMÜ -->
+    <section class="help-cta">
+      <div class="container">
+        <h2>Bu Odadan Çıkarken...</h2>
+        <p>
+          Kırmızı Oda, seni ürkütmek için değil; 
+          <strong>zaten içinde dolaşan soruları netleştirmek</strong> için tasarlandı.
+          Buradan sonra atacağın her küçük adım – bir konuşma, bir nefes, bir “yardım lazım” cümlesi –
+          senin lehine çalışan bir hamle.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px;">
+          <a href="ayna-odasi.html" class="cta-button">Ayna Odası'na Git</a>
+          <a href="bagimlilik-bilgi.html" class="cta-button secondary">Bağımlılık Kütüphanesi</a>
+          <a href="yardim.html" class="cta-button secondary">Yardım Alabileceğin Yerler</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Kırılma Noktası Kartı - basit ve güvenli interaktif geri bildirimler
+    document.addEventListener('DOMContentLoaded', function () {
+      const messages = {
+        q1: {
+          A: "Demek ki bir yerlerde özgür hissetme ihtiyacın var. Bu çok değerli bir bilgi. Bu duyguyu sadece ekranda değil, gerçek hayatta da çoğaltmanın yollarını birlikte arayabilirsin.",
+          B: "Yalnızlık hissi çok gerçek ve ağır olabilir. Telefon/oyun gitse bile yalnızlık kalacakmış gibi hissedebilirsin. Bunu bir rehber öğretmenle paylaşmak, yükü yarıya indirir.",
+          C: "Sıkılmak, beynin yeni bir şey üretmeden önceki durak noktasıdır. Sürekli uyarı almış bir beyin için sıkıntı çok zor gelebilir ama aslında yaratıcılığın kapısıdır.",
+          D: "“Bilmiyorum.” cevabı, çoğu zaman en dürüst cevaptır. Bu, düşünmeye yeni başladığın anlamına gelir. Bu soruyu bir büyüğünle paylaşman, beraber keşfetmenin kapısını açar."
+        },
+        q2: {
+          A: "Yalnız kaldığında zorlanıyorsan, bu bağımlılık kadar ilişkilerle ilgili de bir sinyal olabilir. \"Yalnız hissettiğimde kimi arayabilirim?\" sorusu önemli bir başlangıçtır.",
+          B: "Stres ve sınav dönemlerinde kontrol zorlaşabilir. Bu senin tembel olduğunu değil, şu an sistemin seni çok sıktığını gösterir. Yükü paylaşmak, performansı da arttırır.",
+          C: "Arkadaş ortamı güçlü bir tetikleyicidir. \"Ben hayır diyemiyorum.\" demek bile başlı başına cesur bir cümledir. Bu cümleyi bir yetişkinle paylaşmak, seni suçlu yapmaz.",
+          D: "Değersizlik hissi, bağımlılığın en sevdiği zemindir. Senin değerin hiçbir zaman ekran süresine, oyun skoruna, içilen sigara sayısına göre ölçülmez."
+        },
+        q3: {
+          A: "Ayna Odası'na gidip sahneleri okumak, kendine dürüstçe bakmayı seçtiğin anlamına gelir. Bu, değişimin ilk adımıdır.",
+          B: "Bağımlılık Kütüphanesi'nden bilgi almak, \"sadece hislerim değil, bilim de benim yanımda\" demektir.",
+          C: "Yardım Al sayfasına bakmak, bu yükü tek başına taşımak istemediğini gösterir. Bu güçsüzlük değil, bilinçtir.",
+          D: "Hiçbir şey yapmamak da bir karardır. Ama şunu hatırla: Bu sayfaya geri dönmek, Ayna Odası'na bakmak veya birine mesaj atmak için hâlâ vaktin var."
+        }
+      };
+
+      function handleChoiceClick(e) {
+        const btn = e.target.closest('button[data-answer]');
+        if (!btn) return;
+        const group = btn.closest('.choice-buttons');
+        if (!group) return;
+
+        const q = group.getAttribute('data-question');
+        const ans = btn.getAttribute('data-answer');
+        const output = document.getElementById(q + '-output');
+
+        if (messages[q] && messages[q][ans] && output) {
+          output.textContent = messages[q][ans];
+        }
+      }
+
+      document.querySelectorAll('.choice-buttons').forEach(function (grp) {
+        grp.addEventListener('click', handleChoiceClick);
+      });
+    });
+  </script>
+</body>
+</html>

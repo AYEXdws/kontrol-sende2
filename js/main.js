@@ -312,3 +312,34 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => requestAnimationFrame(checkSticky), { passive: true });
   }
 });
+// Scroll reveal - Ayex özel :)
+document.addEventListener('DOMContentLoaded', function () {
+  // Hangi elemanlar animasyonlu olsun?
+  const revealTargets = document.querySelectorAll(
+    '.info-section, .info-cards .card, .quick-summary .card, .help-cta, .event-card'
+  );
+
+  revealTargets.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  // IntersectionObserver ile görünce animasyon başlat
+  const observer = new IntersectionObserver(
+    function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target); // bir kere animasyon olsun
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealTargets.forEach(function (el) {
+    observer.observe(el);
+  });
+});
+

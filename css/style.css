@@ -246,6 +246,9 @@ footer { background: #2b2b2b; color: #ddd; text-align: center; padding: 18px; fo
   background: linear-gradient(rgba(10,38,71,0.86), rgba(10,38,71,0.86)),
               url('https://images.unsplash.com/photo-1590623389907-e49251052d9a?w=1080') no-repeat center center/cover;
   color: var(--white);
+    .page-bagimlilik .hero-sub h1 {
+  color: #ffffff !important;
+}
 }
 .page-bagimlilik .subtitle {
   color: #ffffff !important;

@@ -7,20 +7,120 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <meta name="description" content="Okul öğrencilerine yönelik basit ve güvenilir bağımlılık rehberi. Yardım ve günlük stratejiler." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="KontrolSende Bağımlılık Kütüphanesi: öğrenciler, aileler ve öğretmenler için güvenilir bağımlılık rehberi. Günlük stratejiler, mini araçlar ve yardım kaynakları." />
+
   <style>
-    /* Sayfaya özel küçük stiller (isteğe bağlı: css/style.css'e taşıyabilirsiniz) */
-    .quick-summary .card { display:flex; gap:12px; align-items:center; padding:18px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.06); background:#fff; }
-    .quick-summary .card h3 { margin:0; color:var(--primary-color); }
-    .tip{background:#eef7ff;padding:.6rem;border-left:4px solid #3aa0ff;margin:0.8rem 0;border-radius:6px}
-    .sticky-cta { display:none; }
-    @media (max-width:768px){ .sticky-cta{ display:block; } }
-     .hero h1 {
-    color: #ffffff !important;
-  }
+    /* Sayfaya özel küçük stiller (istersen css/style.css'e taşıyabilirsin) */
+    .quick-summary {
+      margin-top: 2rem;
+    }
+    .quick-summary .card {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      background: #fff;
+      margin-bottom: 1rem;
+    }
+    .quick-summary .card h3 {
+      margin: 0 0 .25rem;
+      color: var(--primary-color, #2149ff);
+    }
+    .quick-summary .badge {
+      font-size: .78rem;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.05);
+      white-space: nowrap;
+    }
+    .quick-summary .icon-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary-color, #2149ff);
+      margin-top: .4rem;
+      flex-shrink: 0;
+    }
+
+    .tip {
+      background: #eef7ff;
+      padding: .6rem .75rem;
+      border-left: 4px solid #3aa0ff;
+      margin: .9rem 0;
+      border-radius: 6px;
+      font-size: .95rem;
+    }
+    .note {
+      background: #fff7e6;
+      padding: .6rem .75rem;
+      border-left: 4px solid #ffb020;
+      margin: .9rem 0;
+      border-radius: 6px;
+      font-size: .95rem;
+    }
+
+    .toc {
+      margin-top: 2rem;
+      padding: 1.2rem 1.4rem;
+      border-radius: 12px;
+      background: #f7f8fc;
+    }
+    .toc h2 {
+      margin: 0;
+    }
+    .toc ul {
+      margin: .75rem 0 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: .25rem;
+    }
+    .toc a {
+      text-decoration: none;
+      color: inherit;
+      font-size: .96rem;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    #page-search {
+      padding: .4rem .6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 190px;
+      font-family: inherit;
+      font-size: .9rem;
+    }
+    #search-clear {
+      padding: .4rem .6rem;
+      border-radius: 6px;
+      border: 0;
+      background: #e4e6f0;
+      cursor: pointer;
+      font-size: .85rem;
+      margin-left: .35rem;
+    }
+
+    .page-content {
+      padding-bottom: 3rem;
+    }
+    .result-highlight {
+      background: #fff4b8;
+    }
+
+    @media (max-width: 768px) {
+      .quick-summary .card {
+        flex-direction: column;
+      }
+      .toc ul {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body class="page-bagimlilik">
   <header>
     <nav class="container">
@@ -32,162 +132,514 @@
         <li><a href="bagimlilik-bilgi.html" class="active">Bağımlılık Kütüphanesi</a></li>
         <li><a href="ayna-odasi.html">Ayna Odası</a></li>
       </ul>
-      <button class="hamburger" id="hamburger-menu" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger-menu" aria-label="Menüyü aç/kapat">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  <main class="container page-content">
-    <section class="hero">
-      <div>
-        <h1>Bağımlılık Kütüphanesi</h1>
-        <p class="subtitle">Okul öğrencileri için anlaşılır, güvenilir ve yardım odaklı bilgiler. Eğer bir şey seni zor durumda bırakıyorsa yalnız değilsin.</p>
-        <a href="yardim.html" class="cta-button">Yardıma İhtiyacım Var</a>
+  <main>
+    <section class="hero hero-sub">
+      <div class="container">
+        <h1>BAĞIMLILIK KÜTÜPHANESİ</h1>
+        <p>
+          Bu sayfa; “Ben kötü bir insan mıyım?” sorusuna değil,
+          <strong>“Şu anda neler yaşıyorum ve ne yapabilirim?”</strong> sorusuna cevap arıyor.
+          Öğrenciler, aileler ve öğretmenler için tek yerden ulaşılabilen sade bir rehber.
+        </p>
       </div>
     </section>
 
-    <!-- Quick summary: sayfaya girince ilk dikkat çeken kutu -->
-    <section class="quick-summary container" aria-hidden="false" style="margin-top:-30px; position:relative; z-index:2;">
-      <div class="card">
-        <div style="flex:1;">
-          <h3>Hızlı Bakış</h3>
-          <ul style="margin:.5rem 0 0 1rem;color:#333">
-            <li>Ne zaman yardım istenir — pratik adımlar</li>
-            <li>3 kısa başa çıkma tekniği (anında işe yarayanlar)</li>
-            <li>Okulda kiminle konuşabilirsin</li>
+    <div class="page-content">
+      <section class="quick-summary container" aria-label="Kısa özet">
+        <div class="card">
+          <div class="icon-dot"></div>
+          <div>
+            <div class="badge">Çok kısa özet</div>
+            <h3>Bağımlılık = sadece “madde” değil, tekrar eden kaçış şekli</h3>
+            <p>
+              Sigara, telefon, oyun, alışveriş… Hepsinin ortak noktası,
+              zor duygulardan kaçmak için otomatikleşmiş yollar olmasıdır.
+              Bu sayfa; suçlamak için değil, bu döngüyü anlamak için yazıldı.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon-dot"></div>
+          <div>
+            <div class="badge">Ne zaman ciddiye almalısın?</div>
+            <h3>Hayatının diğer alanları zarar görüyorsa</h3>
+            <p>
+              Dersler, uyku, ilişkiler, fiziksel sağlık ya da para yönetimi
+              belirgin şekilde bozuluyorsa; bu, “tek başıma idare ederim”
+              noktasından çıktığının işaretidir.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon-dot"></div>
+          <div>
+            <div class="badge">Yalnız değilsin</div>
+            <h3>Yardım istemek zayıflık değil, yön değiştirmektir</h3>
+            <p>
+              Bu sayfadaki bilgiler, seni yargılamak için değil;
+              rehber öğretmen, aile ve profesyonellerle daha rahat konuşabilmen için
+              bir dil vermek için yazıldı.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- İÇİNDEKİLER + SAYFA İÇİ ARAMA -->
+      <div class="toc container" aria-label="İçindekiler ve hızlı erişim">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+          <h2 style="margin:0">İçindekiler</h2>
+          <div class="search-row" style="max-width:420px;">
+            <input id="page-search" placeholder="Sayfada ara (örn. tetikleyici, nefes, sigara)" aria-label="Sayfada ara" />
+            <button id="search-clear" title="Temizle">Temizle</button>
+          </div>
+        </div>
+        <ul>
+          <li><a href="#nedir">Bağımlılık nedir?</a></li>
+          <li><a href="#turlar">Hangi türler var?</a></li>
+          <li><a href="#belirtiler">Belirtiler ve nasıl fark edilir?</a></li>
+          <li><a href="#ne-yap">Ne yapmalısın? (acil adımlar)</a></li>
+          <li><a href="#gunluk">Günlük stratejiler ve başa çıkma</a></li>
+          <li><a href="#mini-araclar">Mini araçlar (1 dakikalık destekler)</a></li>
+          <li><a href="#okul">Öğrenci / Aile / Öğretmen için öneriler</a></li>
+          <li><a href="#sss">SSS</a></li>
+          <li><a href="#kaynaklar">Güvenilir kaynaklar ve iletişim</a></li>
+          <li><a href="#ayna-kontrol">Ayna Odası bağlantısı</a></li>
+        </ul>
+      </div>
+
+      <!-- BAĞIMLILIK NEDİR -->
+      <article id="nedir" class="info-section container">
+        <h2>Bağımlılık nedir?</h2>
+        <p>
+          Bağımlılık, sadece “çok kullanmak” değildir. 
+          Bir davranış ya da madde, <strong>olumsuz sonuçlar görmene rağmen</strong>
+          tekrar tekrar yaptığın ve bırakamadığın bir şeye dönüştüyse,
+          bağımlılık döngüsünden söz edebiliriz.
+        </p>
+        <p>
+          Temel nokta şudur:
+          <strong>Kısa süreli iyi his uğruna, uzun vadede hayatın daralıyorsa</strong>,
+          orada yeni bir desteğe ihtiyaç vardır.
+        </p>
+        <div class="tip">
+          <strong>Önemli:</strong> Bağımlılık bir <em>karakter sorunu</em> değil,
+          biyolojik, psikolojik ve sosyal tarafları olan bir süreçtir.
+          Yani “Güçsüzüm.” değil; “Şu an desteğe ihtiyacım var.” demek daha doğrudur.
+        </div>
+      </article>
+
+      <!-- TÜRLER -->
+      <article id="turlar" class="info-section container">
+        <h2>Hangi tür bağımlılıklar var?</h2>
+        <p>
+          En sık gördüğümüz bağımlılık türlerini birkaç ana başlıkta düşünebilirsin:
+        </p>
+        <ul>
+          <li>
+            <strong>Maddesel bağımlılıklar:</strong> Sigara, alkol, uyuşturucu, uçucu maddeler…
+            Vücut üzerinde doğrudan kimyasal etki yaparlar.
+          </li>
+          <li>
+            <strong>Dijital bağımlılıklar:</strong> Oyun, sosyal medya, sürekli video izleme,
+            kumar uygulamaları, bahis siteleri…
+          </li>
+          <li>
+            <strong>Davranışsal bağımlılıklar:</strong> Alışveriş, yeme atakları,
+            riskli heyecan arayışı, sürekli onay ihtiyacı…
+          </li>
+        </ul>
+        <p>
+          Hepsinin ortak noktasında şunu görürüz:
+          <em>zor bir duygu</em> ortaya çıktığında (boşluk, öfke, yalnızlık, sıkıntı),
+          <strong>otomatikleşmiş bir kaçış</strong> devreye girer.
+        </p>
+      </article>
+
+      <!-- BELİRTİLER -->
+      <article id="belirtiler" class="info-section container">
+        <h2>Belirtiler ve nasıl fark edilir?</h2>
+        <p>
+          Bağımlılık bir anda ortaya çıkmaz; yavaş yavaş yerleşir.
+          Aşağıdaki işaretler, “burada bir şeyler kontrolden çıkıyor olabilir” demenin
+          sakin yollarıdır.
+        </p>
+
+        <h3>Davranışsal işaretler</h3>
+        <ul>
+          <li>“Biraz bakacağım” deyip saatlerce telefonda kalmak</li>
+          <li>“Bu son” deyip sık sık devam etmek</li>
+          <li>Okul, iş veya aile sorumluluklarını erteleyip hep aynı davranışı öne almak</li>
+          <li>Gizli kullanma, yalan söyleme, saklama davranışları</li>
+        </ul>
+
+        <h3>Duygusal işaretler</h3>
+        <ul>
+          <li>Davranışı yapamadığında aşırı sinir, huzursuzluk, boşluk hissi</li>
+          <li>“Onsuz yapamam.” ya da “Onsuz ben kimim ki?” duygusu</li>
+          <li>Kendine kızma, suçluluk, utanç ama yine de aynı döngünün sürmesi</li>
+        </ul>
+
+        <h3>Fiziksel işaretler (özellikle maddesel bağımlılıklarda)</h3>
+        <ul>
+          <li>Uyku düzeninde bozulma</li>
+          <li>İştah değişiklikleri</li>
+          <li>El titremesi, terleme, çarpıntı, nefes darlığı atakları</li>
+        </ul>
+
+        <div class="note">
+          <strong>Not:</strong> Bu belirtilerden birkaçını kendinde görmek
+          kesin tanı anlamına gelmez. Ama <strong>erken fark etmek</strong>,
+          süreci çok daha hafif atlatmanın en büyük avantajıdır.
+        </div>
+      </article>
+
+      <!-- NE YAPMALISIN (ACİL ADIMLAR) -->
+      <article id="ne-yap" class="info-section container">
+        <h2>Ne yapmalısın? (Acil adımlar)</h2>
+        <p>
+          Bazı durumlar “bir gün bakarım” değil, <strong>hemen konuşulması</strong>
+          gereken durumlardır. Örneğin:
+        </p>
+        <ul>
+          <li>Madde kullanımı sonrası bayılma, nefes darlığı, göğüs ağrısı</li>
+          <li>Arkadaş çevresinde ağır madde/uyuşturucu teklif edilmesi</li>
+          <li>“Artık yaşamak istemiyorum” tarzı cümlelerin sıklaşması</li>
+        </ul>
+        <p>
+          Böyle bir durumda yapılabilecekler:
+        </p>
+        <ul>
+          <li>
+            <strong>Yalnız kalma.</strong> Güvendiğin bir yetişkine (rehber öğretmen,
+            aile, sağlık çalışanı) durumu olduğu gibi anlat.
+          </li>
+          <li>
+            <strong>Gerekirse acile git.</strong> Fiziksel risk varsa,
+            ertelemeden en yakın sağlık kuruluşuna başvur.
+          </li>
+          <li>
+            Okulunun rehberlik servisi veya aile hekimi üzerinden
+            uzman desteği için yönlendirme iste.
+          </li>
+        </ul>
+        <div class="tip">
+          <strong>Hatırla:</strong> Yardım istemek, “kaybettim” demek değildir.
+          Aksine, kontrolü yeniden eline almak için atılan ilk gerçek adımdır.
+        </div>
+      </article>
+
+      <!-- GÜNLÜK STRATEJİLER -->
+      <article id="gunluk" class="info-section container">
+        <h2>Günlük stratejiler ve başa çıkma</h2>
+        <p>
+          Hiç kimse bir günde bağımlı olmadığı gibi, bir günde de tamamen
+          sıfırlamaz. Ama <strong>günlük %1’lik değişimler</strong>,
+          aylar sonra çok büyük fark yaratır.
+        </p>
+
+        <h3>1. Tetikleyicileri fark et</h3>
+        <ul>
+          <li>Ne olduğunda elin sigaraya / telefona gidiyor?</li>
+          <li>Genelde günün hangi saatleri daha zor?</li>
+          <li>Yanında kim varken bu davranış daha sık oluyor?</li>
+        </ul>
+
+        <h3>2. Davranışı değil, süreyi hedefle</h3>
+        <p>
+          “Bir daha hiç yapmayacağım.” cümlesi, çoğu zaman beyni kilitler.
+          Bunun yerine:
+        </p>
+        <ul>
+          <li>“Bugün toplam süreyi 20 dakika azaltacağım.”</li>
+          <li>“Yatmadan önce son 30 dakikayı ekransız geçireceğim.”</li>
+        </ul>
+
+        <h3>3. Yerine koyabileceğin şeyler hazır olsun</h3>
+        <ul>
+          <li>Kısa yürüyüş, müzik, duş, yüz yıkama</li>
+          <li>Birine kısa mesaj atmak (“Şu an çok bunaldım.” gibi)</li>
+          <li>Basit bir fiziksel hareket (oda toplama, pencere açma)</li>
+        </ul>
+
+        <div class="note">
+          <strong>Küçük ama önemli:</strong> Amaç mükemmel olmak değil.
+          <em>“Bugün bir adım daha iyi yaptım.”</em> diyebilmek bile
+          kontrol duygusunu güçlendiren bir kayıttır.
+        </div>
+      </article>
+
+      <!-- MİNİ ARAÇLAR -->
+      <article id="mini-araclar" class="info-section container">
+        <h2>Mini araçlar (1 dakikalık destekler)</h2>
+        <p class="section-intro">
+          Bazen tüm sayfayı okumaya gücün olmaz. 
+          “Şu an kötü hissediyorum, hızlı bir şey lazım.” dediğin anlar için
+          küçük ama işe yarar üç araç:
+        </p>
+
+        <div class="info-cards">
+          <div class="card">
+            <h3>1 • 4-2-6 Nefes Reset</h3>
+            <p>
+              <strong>4 saniye</strong> burundan nefes al,
+              <strong>2 saniye</strong> tut,
+              <strong>6 saniye</strong> ver.
+            </p>
+            <p>
+              Bunu arka arkaya 5 kez dene. Kalp atışın biraz yavaşladığında,
+              karar vermek daha kolay olur.
+            </p>
+            <p class="tip">
+              Nefes işe yaramıyorsa bu senin suçun değil;
+              o anki duygu çok yoğun olabilir. Yine de bedenine
+              <strong>“yanındayım.”</strong> demenin bir yoludur.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>2 • Tetikleyici Notu</h3>
+            <p>
+              Bir kağıt ya da telefon notuna sadece şunları yaz:
+            </p>
+            <ul>
+              <li><strong>Ne oluyordu?</strong> (Ortamdaki durum)</li>
+              <li><strong>Ne hissettim?</strong> (Öfke, boşluk, sıkıntı, yalnızlık…)</li>
+              <li><strong>Ne yaptım?</strong> (Telefon, sigara, oyun, tartışma…)</li>
+            </ul>
+            <p>
+              Bu üç satır; ileride rehber öğretmen, aile veya uzmanla
+              konuşurken <strong>altın değerinde veri</strong> olur.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>3 • 5 Dakikalık Detoks</h3>
+            <p>
+              Sadece <strong>5 dakika için</strong> telefonu başka bir odaya bırak
+              ya da sigara içilen ortamdan çık.
+            </p>
+            <p>Bu 5 dakikada şunlardan birini dene:</p>
+            <ul>
+              <li>Pencereyi aç, birkaç kez derin nefes al</li>
+              <li>Kısa bir mesaj: “Bugün biraz kötü hissediyorum.”</li>
+              <li>Su iç, yüzünü yıka, yürüyüşe çık</li>
+            </ul>
+            <p class="note">
+              Amaç tamamen bırakmak değil; beynine küçük bir
+              <strong>“İstediğimde ara verebiliyorum.”</strong> kaydı yerleştirmek.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ÖĞRENCİ / AİLE / ÖĞRETMEN -->
+      <article id="okul" class="info-section container">
+        <h2>Öğrenci / Aile / Öğretmen için öneriler</h2>
+        <p class="section-intro">
+          Aynı davranış, üç farklı rolde çok farklı görünebilir.
+          Bu bölüm; <strong>öğrenci</strong>, <strong>aile</strong> ve
+          <strong>öğretmen</strong> için kısa ama net adımlar sunar.
+        </p>
+
+        <div class="info-cards">
+          <!-- ÖĞRENCİ -->
+          <div class="card">
+            <h3>Öğrenciyim</h3>
+            <ul>
+              <li>
+                Güvendiğin bir yetişkini seç: rehber öğretmen, sınıf öğretmeni
+                ya da aileden biri. <em>Tek bir kişi bile yeter.</em>
+              </li>
+              <li>
+                Ne yaşadığını anlatırken “problem” değil, “durum” üzerinden konuş:
+                <br><strong>“Son zamanlarda telefondan çıkamıyorum ve derslerim düşüyor.”</strong>
+              </li>
+              <li>
+                Kendinle ilgili tek bir hedef belirle:
+                <br><strong>“Bu hafta, yatmadan 30 dakika önce telefon yok.”</strong>
+              </li>
+              <li>
+                İstersen Ayna Odası’ndaki bir sahneyi açıp,
+                <strong>“Bazen böyle hissediyorum.”</strong> diyerek konuşmaya başlayabilirsin.
+              </li>
+            </ul>
+          </div>
+
+          <!-- AİLE -->
+          <div class="card">
+            <h3>Aileyim / Yakınım</h3>
+            <ul>
+              <li>
+                İlk cümle yargılayıcı olmasın:
+                <br><strong>“Merak ediyorum, son zamanlarda nasılsın?”</strong>
+              </li>
+              <li>
+                “Neden böyle yapıyorsun?” yerine
+                <strong>“Sence bunu birlikte nasıl çözebiliriz?”</strong> sorusuna odaklanın.
+              </li>
+              <li>
+                Davranışa sınır koyun, kişiliğe değil:
+                <br>“Gece 01.00’e kadar telefon yok.” net bir kuraldır;
+                “Sen tembelsin.” incitici bir etikettir.
+              </li>
+              <li>
+                Gerekirse aile hekimi, rehberlik servisi veya bağımlılık polikliniğinden
+                profesyonel destek için bilgi alın.
+              </li>
+            </ul>
+          </div>
+
+          <!-- ÖĞRETMEN -->
+          <div class="card">
+            <h3>Öğretmenim / Rehberim</h3>
+            <ul>
+              <li>
+                Öğrenciyi tek bir davranışıyla tanımlamayın:
+                <strong>“Sigara içen çocuk”</strong> değil,
+                <strong>“zorlanmasına rağmen okula gelen öğrenci”</strong>.
+              </li>
+              <li>
+                Küçük “check-in” cümleleri kullanın:
+                <br>“Bugün nasılsın, son günlerde seni zorlayan bir şey var mı?”
+              </li>
+              <li>
+                Okul kurallarını netleştirirken,
+                “Ama yanında yürüyorum.” mesajını da verin:
+                <br>“Bu davranış okula uygun değil ama bunu yalnız çözmek zorunda değilsin.”
+              </li>
+              <li>
+                Risk gördüğünüz durumlarda rehberlik servisi, aile ve
+                gerektiğinde sağlık birimleriyle işbirliği kurun.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- AYNA ODASI BAĞLANTISI -->
+      <section id="ayna-kontrol" class="info-section container">
+        <h2>Ayna Odası ile bağlantı</h2>
+        <p class="section-intro">
+          Bu sayfayı okurken “Bu biraz ben…” dediğin yerler olduysa,
+          <strong>Ayna Odası</strong> tam oradan devam etmen için tasarlandı.
+          Orada sahneler, iç sesler ve sorular üzerinden kendini daha net görebilirsin.
+        </p>
+
+        <div class="info-cards">
+          <div class="card">
+            <h3>1 • Sahnede kendini gör</h3>
+            <p>
+              Sigara, telefon, oyun ve yalnızlıkla ilgili sahneleri okurken
+              <strong>“Burada benden izler var.”</strong> dediğin yer,
+              değişimin başladığı yerdir.
+            </p>
+            <a href="ayna-odasi.html" class="cta-button" style="margin-top:8px;">
+              Ayna Odası'na Git
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>2 • Yardım istemek için köprü</h3>
+            <p>
+              Ayna Odası’ndaki sahneler, rehber öğretmen ya da aileyle konuşurken
+              kullanabileceğin <strong>hazır cümleler</strong> verebilir.
+            </p>
+            <p>
+              Örneğin: “Buradaki sahneye benziyorum, bazen böyle hissediyorum.”
+              diyerek sohbeti başlatabilirsin.
+            </p>
+            <a href="yardim.html" class="cta-button secondary" style="margin-top:8px;">
+              Yardım Alabileceğin Yerleri Gör
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SSS -->
+      <section id="sss" class="info-section container">
+        <h2>Sık Sorulan Sorular (SSS)</h2>
+
+        <details>
+          <summary>Bağımlı mıyım?</summary>
+          <p>
+            Bu sorunun net cevabını buradan veremeyiz.
+            Ancak şu üç soruya “evet” diyorsan, destek alman iyi olabilir:
+          </p>
+          <ul>
+            <li>Durmak istiyorum ama duramıyorum.</li>
+            <li>Hayatımın diğer alanları (ders, uyku, ilişkiler) bozulmaya başladı.</li>
+            <li>Bu konuyu kimseyle konuşamıyor, saklıyorum.</li>
           </ul>
-        </div>
-        <a href="yardim.html" class="cta-button" style="margin-left:12px;">Hemen Destek Al</a>
-      </div>
-    </section>
+        </details>
 
-    <div class="toc container" aria-label="İçindekiler ve hızlı erişim">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
-        <h2 style="margin:0">İçindekiler</h2>
-        <div class="search-row" style="max-width:420px">
-          <input id="page-search" placeholder="Sayfada ara (örn. tetikleyici, nefes)" aria-label="Sayfada ara" />
-          <button id="search-clear" title="Temizle">Temizle</button>
+        <details>
+          <summary>“Sadece stresliyim, bağımlı değilim.” diyorsam?</summary>
+          <p>
+            Stres herkesin yaşadığı bir şey; önemli olan stresle
+            <strong>nasıl baş etmeye çalıştığın</strong>.
+            Sadece sigara/telefon değil, nefes, sohbet, spor, sanat gibi
+            başka yolları da devreye sokabiliyorsan bu büyük avantajdır.
+          </p>
+        </details>
+
+        <details>
+          <summary>Arkadaşlarım kullanıyor, ben ne yapacağım?</summary>
+          <p>
+            Kimseyi yargılamak zorunda değilsin ama 
+            <strong>kendi sınırını çizme hakkın var</strong>.
+            “Sizi seviyorum ama bunu yapmak istemiyorum.” demek,
+            seni zayıf değil, kendine sadık yapar.
+          </p>
+        </details>
+
+        <details>
+          <summary>Aileme söylemeye korkuyorum.</summary>
+          <p>
+            Korkman anlaşılabilir. İstersen önce bir rehber öğretmen ya da
+            güvendiğin yetişkinle konuşup, aileyle birlikte nasıl
+            konuşabileceğinizi planlayabilirsiniz.
+          </p>
+        </details>
+      </section>
+
+      <!-- KAYNAKLAR -->
+      <section id="kaynaklar" class="info-section container">
+        <h2>Güvenilir kaynaklar ve iletişim</h2>
+        <p>
+          Türkiye’de bağımlılık konusunda destek alabileceğin bazı güvenilir
+          kurum ve hatlar:
+        </p>
+        <ul>
+          <li>
+            <strong>Yeşilay</strong> – Gençlere yönelik materyaller ve danışmanlık hizmetleri.
+          </li>
+          <li>
+            <strong>ALO 191 Uyuşturucu ile Mücadele Danışma ve Destek Hattı</strong> –
+            7/24, ücretsiz.
+          </li>
+          <li>
+            <strong>ALO 182 MHRS</strong> – Psikiyatri veya ilgili polikliniklerden randevu almak için.
+          </li>
+          <li>
+            Okulunun <strong>Rehberlik Servisi</strong> ve bağlı olduğun
+            <strong>Aile Sağlığı Merkezi</strong>.
+          </li>
+        </ul>
+        <div class="tip">
+          <strong>Unutma:</strong> Bu kütüphane, yalnızca bir başlangıç noktası.
+          Gerçek dönüşüm; sen hazır hissettiğinde, birileriyle birlikte yürüme
+          kararı aldığında başlar.
         </div>
-      </div>
-      <ul>
-        <li><a href="#nedir">Bağımlılık nedir?</a></li>
-        <li><a href="#turlar">Hangi türler var?</a></li>
-        <li><a href="#belirtiler">Belirtiler ve nasıl fark edilir?</a></li>
-        <li><a href="#ne-yap">Ne yapmalısın? (acil adımlar)</a></li>
-        <li><a href="#gunluk">Günlük stratejiler ve başa çıkma</a></li>
-        <li><a href="#okul">Okul & Aile için pratik öneriler</a></li>
-        <li><a href="#sss">SSS</a></li>
-        <li><a href="#kaynaklar">Güvenilir kaynaklar ve iletişim</a></li>
-      </ul>
+      </section>
     </div>
-
-    <article id="nedir" class="info-section container">
-      <h2>Bağımlılık nedir?</h2>
-      <p>Bağımlılık, bir alışkanlığın hayatını zorlaştıracak şekilde elinden kaçmasıdır. Bazen bu davranışlar kişinin derslerini, arkadaşlıklarını veya uyku düzenini etkileyebilir. Burada amaç suçlamak değil; anlamak ve yardım etmektir.</p>
-      <div class="tip"><strong>Not:</strong> Bu sayfada kimseyi küçük düşürmek yok. Eğer senin ya da bir arkadaşının bir sorunu varsa yardım istemek güçlü bir davranıştır.</div>
-    </article>
-
-    <article id="turlar" class="info-section container">
-      <h2>Hangi türler var? (okul için önemli olanlar)</h2>
-      <p>Okul ortamında daha sık gördüğümüz bazı örnekler:</p>
-      <ul>
-        <li><strong>Davranışsal alışkanlıklar:</strong> Oyun veya sosyal medyada aşırı zaman geçirmek, internette kendini kaybetmek, sürekli alışveriş yapmak veya yeme alışkanlıkları.</li>
-        <li><strong>Rutin dışı davranışlar:</strong> Uyku düzeninin bozulması, dersleri kaçırma, arkadaşlarla yaşanan kopukluklar.</li>
-      </ul>
-      <p>Burada madde isimlerine girmiyoruz; eğer özel bir konu seni endişelendiriyorsa güvenilir bir yetişkinle konuş.</p>
-    </article>
-
-    <article id="belirtiler" class="info-section container">
-      <h2>Belirtiler ve nasıl fark edilir?</h2>
-      <p>Arkadaşında veya kendinde şu değişiklikler varsa dikkat etmek gerekebilir:</p>
-      <ul>
-        <li>Eskiden sevdiği etkinliklerden uzaklaşma</li>
-        <li>Ders başarısında ani düşüş</li>
-        <li>Uyku veya yeme düzeninde büyük değişiklikler</li>
-        <li>Sosyal izolasyon veya arkadaş çevresinde ani değişiklik</li>
-        <li>Sürekli aynı davranışı tekrarlama ve bunu bırakmada zorlanma</li>
-      </ul>
-      <p>Tek bir işaret tek başına açıklama değildir; ancak birkaç tanesi birlikteyse konuşmak iyi bir fikirdir.</p>
-    </article>
-
-    <article id="ne-yap" class="info-section container">
-      <h2>Ne yapmalısın? (acil adımlar)</h2>
-      <ol>
-        <li>Eğer kendin tehlikedeysen hemen bir yetişkine veya acil servise başvur (112).</li>
-        <li>Güvendiğin bir öğretmen, okul rehber öğretmeni veya aile üyesiyle konuş.</li>
-        <li>Eğer bir arkadaşın zor durumdaysa, onu yargılamadan dinle ve yardım araması için destek ol.</li>
-        <li>Okul rehberlik servisini veya yerel sağlık hattını ara; profesyonel yardım gerekip gerekmediğini birlikte değerlendirirsiniz.</li>
-      </ol>
-    </article>
-
-    <article id="gunluk" class="info-section container">
-      <h2>Günlük stratejiler ve başa çıkma</h2>
-      <p>Hemen uygulayabileceğin kısa yöntemler:</p>
-      <ul>
-        <li>Günlük rutin kur: yatma ve uyanma saatlerini sabitle.</li>
-        <li>Süre sınırı koy: belirli bir süre sonra telefonunu uçak moduna al.</li>
-        <li>Kısa nefes ve rahatlama egzersizleri: 4-2-6 nefes tekniği (4 saniye al, 2 tut, 6 ver).</li>
-        <li>Alternatif aktiviteler: yürüyüş, spor, bir hobi veya arkadaşla yüz yüze buluşma.</li>
-        <li>Tetikleyiciyi yaz: hangi durumlarda kontrolü kaybettiğini not et; sonra bu durumları planla yönet.</li>
-      </ul>
-      <details>
-        <summary>Kriz planı örneği</summary>
-        <ol>
-          <li>Derin nefes al 4-2-6. Eğer işe yaramazsa, bir yetişkine mesaj at.</li>
-          <li>10 dakika dışarı çık ve yürüyüş yap.</li>
-          <li>Okul rehber öğretmenini ara veya mesaj bırak.</li>
-        </ol>
-      </details>
-    </article>
-
-    <article id="okul" class="info-section container">
-      <h2>Okul & Aile için pratik öneriler</h2>
-      <p>Öğrenciysen:</p>
-      <ul>
-        <li>Güvendiğin bir yetişkinle erken konuş; sorun büyümeden destek almak daha kolaydır.</li>
-        <li>Rehber öğretmene randevu iste; okulun sunduğu destekleri öğren.</li>
-      </ul>
-      <p>Ebeveyn/öğretmensen:</p>
-      <ul>
-        <li>Suçlamak yerine dinleyin. "Neden" değil "nasıl" çözebileceğinize odaklanın.</li>
-        <li>Net ama destekleyici sınırlar koyun; profesyonel yardım gerekiyorsa yönlendirin.</li>
-      </ul>
-    </article>
-
-    <section id="sss" class="info-section container">
-      <h2>SSS</h2>
-      <details>
-        <summary>Bir arkadaşımda değişiklik gördüm, ne yapmalıyım?</summary>
-        <p>Önce güvenli bir şekilde konuş: "Son zamanlarda seni farklı görüyorum, iyi misin?" Yargılamadan dinle ve beraber bir yetişkinden yardım alın.</p>
-      </details>
-      <details>
-        <summary>Yardım istemek zayıflık mıdır?</summary>
-        <p>Hayır. Yardım istemek sorunu çözmenin ilk güçlü adımıdır.</p>
-      </details>
-      <details>
-        <summary>Eğer gizlilik istiyorsa ne yaparım?</summary>
-        <p>Saygı göster, ama kişiyi tehlikeye atacak bir durum varsa (kendine zarar verme, başkalarına zarar) mutlaka yetkili bir yetişkinle paylaşın.</p>
-      </details>
-    </section>
-
-    <section id="kaynaklar" class="info-section container">
-      <h2>Güvenilir kaynaklar ve iletişim</h2>
-      <ul>
-        <li><a href="https://www.saglik.gov.tr" target="_blank" rel="noopener">Sağlık Bakanlığı</a></li>
-        <li><a href="https://www.yesilay.org.tr" target="_blank" rel="noopener">Yeşilay</a> (genel bilgilendirme ve destek)</li>
-        <li><a href="yardim.html">KontrolSende — Yardım ve Destek</a></li>
-      </ul>
-      <h3>Acil Durum</h3>
-      <p>Eğer kendinize veya başkasına zarar verme riski varsa, hemen yerel acil servisi (112) arayın.</p>
-    </section>
-    <br>
-
-    <!-- Etkinlikler ön izlemesi (preview sınıfı eklendi) -->
-    <section class="activities-preview-section container">
-      <h2>Proje Etkinlikleri</h2>
-      <p>KontrolSende'nin düzenlediği seminerler ve atölyeler hakkında bilgi alabilirsiniz.</p>
-      <div class="activities-grid preview" data-source="events"></div>
-    </section>
-
   </main>
 
   <footer>
@@ -196,46 +648,58 @@
     </div>
   </footer>
 
-  <!-- Mobil için yapışkan (sticky) CTA -->
-  <div class="sticky-cta" id="sticky-cta">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNKilYHFaBRRI9ckep72aLc1H0OR0o3rbQusPKiywL42oEQ/viewform?usp=dialog" class="cta-button" style="width:100%;text-align:center;">Farkındalık Testine Başla</a>
-  </div>
-
   <script src="js/main.js"></script>
   <script>
     // Basit sayfa içi arama (başlık ve paragraf metinlerinde arama yapar)
     (function(){
       const input = document.getElementById('page-search');
       const clearBtn = document.getElementById('search-clear');
+
       function clearHighlights(){
         document.querySelectorAll('.result-highlight').forEach(el => {
           el.classList.remove('result-highlight');
         });
       }
+
       function searchPage(q){
         clearHighlights();
         if(!q) return;
         const terms = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
         if(!terms.length) return;
-        const nodes = Array.from(document.querySelectorAll('.page-content h2, .page-content h3, .page-content p, .page-content li'));
-        nodes.forEach(n=>{
-          const text = (n.textContent||'').toLowerCase();
-          if(terms.every(t=> text.includes(t))) {
+
+        const nodes = Array.from(
+          document.querySelectorAll(
+            '.page-content h2, .page-content h3, .page-content p, .page-content li'
+          )
+        );
+        let firstMatch = null;
+
+        nodes.forEach(n => {
+          const text = (n.textContent || '').toLowerCase();
+          const ok = terms.every(t => text.includes(t));
+          if(ok){
             n.classList.add('result-highlight');
-            if(n.scrollIntoView) n.scrollIntoView({behavior:'smooth', block:'center'});
+            if(!firstMatch) firstMatch = n;
           }
         });
+
+        if(firstMatch && firstMatch.scrollIntoView){
+          firstMatch.scrollIntoView({behavior:'smooth', block:'center'});
+        }
       }
+
       if(input){
         input.addEventListener('keyup', (e)=>{
-          if(e.key === 'Enter'){ searchPage(input.value); }
+          if(e.key === 'Enter'){
+            searchPage(input.value);
+          }
         });
       }
       if(clearBtn){
         clearBtn.addEventListener('click', ()=>{
-          input.value='';
+          input.value = '';
           clearHighlights();
-          input.focus();
+          if(input.focus) input.focus();
         });
       }
     })();

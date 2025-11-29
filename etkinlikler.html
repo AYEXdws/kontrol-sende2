@@ -3,36 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proje Etkinlikleri - Kontrol Sende</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Proje Etkinlikleri - KontrolSende</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 </head>
-<body>
+<body class="page-bagimlilik">
   <header>
     <nav class="container">
       <a href="index.html" class="logo">KontrolSende</a>
       <ul class="nav-links">
         <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="etkinlikler.html" class="active" >Etkinlikler</a></li>
+        <li><a href="etkinlikler.html" class="active">Etkinlikler</a></li>
         <li><a href="yardim.html">Yardım Al</a></li>
         <li><a href="bagimlilik-bilgi.html">Bağımlılık Kütüphanesi</a></li>
         <li><a href="ayna-odasi.html">Ayna Odası</a></li>
       </ul>
-      <button class="hamburger" id="hamburger-menu"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger-menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  <main class="container page-content">
-    <h1>Proje Etkinliklerimiz</h1>
-    <p class="subtitle">Okulumuzda ve çevremizde farkındalık yaratmak için düzenlediğimiz tüm çalışmaları buradan takip edebilirsiniz.</p>
+  <main class="page-content">
+    <!-- HERO -->
+    <section class="hero hero-sub">
+      <div class="container">
+        <h1>PROJE ETKİNLİKLERİMİZ</h1>
+        <p>
+          Okulda, sınıfta ve çevrede yaptığımız her etkinlik; sadece bir proje
+          görevi değil, <strong>bir bilinç sahnesi</strong>. Burada,
+          KontrolSende’nin hayata dokunduğu tüm alanları görebilirsin.
+        </p>
+      </div>
+    </section>
 
-    <!-- JS burayı otomatik dolduracak -->
-    <div class="activities-grid" data-source="events"></div>
+    <!-- ETKİNLİKLER NE İŞE YARAR? -->
+    <section class="info-section container">
+      <h2>Bu Etkinlikler Ne İşe Yarar?</h2>
+      <p class="section-intro">
+        Her etkinlik, öğrencilerin bağımlılık kavramına farklı açıdan
+        dokunmasını sağlar. Kimi sahnede, kimi atölyede, kimi afişte
+        kendini bulur. Amacımız; “sadece dinleyen” değil,
+        <strong>üreten ve sorgulayan</strong> gençler.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>Tiyatro & Sahne Gösterileri</h3>
+          <p>
+            Bağımlılığı, tek bir cümleden ibaret bırakmıyoruz. 
+            Öğrenciler; sigara, telefon, oyun, aile baskısı ve yalnızlık gibi
+            temaları sahneye taşıyor.
+          </p>
+          <ul>
+            <li>Kendini bir karakterin içinde görme imkânı</li>
+            <li>Seyirci için güçlü empati alanı</li>
+            <li>Sonrasında sınıf içi tartışma için mükemmel zemin</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Sınıf İçi Atölyeler</h3>
+          <p>
+            Küçük gruplar halinde, telefon kullanımı, sosyal medya baskısı,
+            oyun süresi, aile ilişkileri gibi konular üzerinde
+            tartışma ve üretim yapılır.
+          </p>
+          <ul>
+            <li>Öğrencinin kendi cümlesini kurduğu alan</li>
+            <li>Sessiz kalanların bile yazıyla kendini ifade edebilmesi</li>
+            <li>Ayna Odası ve Kütüphane ile bağlantılı mini çalışmalar</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Afiş, Video ve Dijital İçerikler</h3>
+          <p>
+            Sosyal medya postları, kısa videolar, okul panosuna asılan afişler…
+            Hepsi, “bağımlılık” kelimesini gençlerin diliyle yeniden yazmak içindir.
+          </p>
+          <ul>
+            <li>Görsel tasarım ve mesaj üretme becerisi</li>
+            <li>Okulun geneline yayılan farkındalık</li>
+            <li>Projeyi sadece sınıf içinde değil, okul kültürüne taşıma</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTOMATİK ETKİNLİK KARTLARI (events.json'dan geliyor) -->
+    <section class="container info-section">
+      <h2>Planlanan ve Gerçekleşen Etkinlikler</h2>
+      <p class="section-intro">
+        Aşağıdaki etkinlik kartları, <strong>events.json</strong> dosyasındaki
+        bilgilerden otomatik olarak oluşturulur. Yeni etkinlik eklemek için
+        sadece oraya bir kayıt yazman yeterli.
+      </p>
+
+      <div class="activities-grid" data-source="events"></div>
+    </section>
+
+    <!-- ÖRNEK ETKİNLİK SENARYOLARI -->
+    <section class="info-section container">
+      <h2>Örnek Etkinlik Senaryoları</h2>
+      <p class="section-intro">
+        Bu bölüm, “Bu etkinlikler sınıfta nasıl işleniyor?” sorusuna cevap verir.
+        Her senaryo, öğretmenler ve öğrenciler için bir taslak gibi düşünülebilir.
+      </p>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>Senaryo 1 • Telefonla Başlayan Gün</h3>
+          <p>
+            Öğrencilerden biri, sabah kalktığı anda telefona sarılan bir karakteri canlandırır.
+            Gün boyunca ders, teneffüs, yemek, ev ve gece sahneleri oynanır.
+          </p>
+          <ul>
+            <li>Her sahnede karakterin iç sesi ve dış sesi ayrı oynanır.</li>
+            <li>Diğer öğrenciler, “Bu sahnede başka nasıl davranabilirdi?” diye fikir üretir.</li>
+            <li>Sonunda Ayna Odası’ndaki “Gece Telefonu” sahnesi okunur ve bağ kurulur.</li>
+          </ul>
+          <p class="note">
+            Kazanım: Öğrenciler, telefon kullanımını sadece “eğlence” değil,
+            <strong>kaçış mekanizması</strong> olarak da görmeye başlar.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Senaryo 2 • “Bir Kere Denemekten Ne Olur?”</h3>
+          <p>
+            Sınıfta küçük gruplar oluşturulur. Her grup,
+            “Bir kere denemekten ne olacak ki?” cümlesiyle başlayan
+            farklı bir hikâye yazar: sigara, enerji içeceği, bahis, oyun…
+          </p>
+          <ul>
+            <li>Hikâyenin başı, gelişmesi ve sonucu birlikte tasarlanır.</li>
+            <li>En sonda “Eğer yardım isteseydi ne değişirdi?” bölümü eklenir.</li>
+            <li>Hikâyeler panoya asılır veya sınıfta okunur.</li>
+          </ul>
+          <p class="tip">
+            Kazanım: “Bir kere” cümlesinin aslında 
+            <strong>birçok tekrarın başlangıcı</strong> olabileceğini fark ettirir.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Senaryo 3 • Aile ile Konuşma Provası</h3>
+          <p>
+            Öğrenciler iki kişilik gruplara ayrılır. 
+            Biri genç, diğeri ebeveyn rolünü oynar.
+            Konu: telefon, oyun, sigara veya uyku düzeni olabilir.
+          </p>
+          <ul>
+            <li>Genç rolündeki öğrenci, içinden geçenleri dürüstçe anlatır.</li>
+            <li>Ebeveyn rolündeki öğrenci, yargılamadan dinlemeyi dener.</li>
+            <li>Sonra roller değiştirilir; herkes her iki tarafı da deneyimler.</li>
+          </ul>
+          <p>
+            İstenirse, <a href="yardim.html">Yardım Al</a> sayfasındaki 
+            “Bir yetişkinle nasıl konuşurum?” bölümüyle bağ kurulabilir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÇAĞRI: DİĞER SAYFALARA GEÇİŞ -->
+    <section class="help-cta">
+      <div class="container">
+        <h2>Etkinlikten Sonra Nereye Devam Edebilirsin?</h2>
+        <p>
+          Bir etkinlik bittiğinde, aslında yolculuk yeni başlar. 
+          Sahnedeki, afişteki, atölyedeki cümleleri
+          <strong>kendi hayatına taşımak</strong> için üç kapın var:
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px;">
+          <a href="bagimlilik-bilgi.html" class="cta-button">Bağımlılık Kütüphanesi</a>
+          <a href="ayna-odasi.html" class="cta-button secondary">Ayna Odası'na Gir</a>
+          <a href="yardim.html" class="cta-button secondary">Yardım Alabileceğin Yerler</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container"><p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p></div>
+    <div class="container">
+      <p>&copy; 2025 KontrolSende Platformu. Tüm hakları saklıdır.</p>
+    </div>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>

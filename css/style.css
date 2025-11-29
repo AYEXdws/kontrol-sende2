@@ -311,4 +311,18 @@ footer { background: #2b2b2b; color: #ddd; text-align: center; padding: 18px; fo
   padding: 2px 4px;
   border-radius: 4px;
 }
+/* Scroll reveal animasyonları */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
